@@ -37,13 +37,17 @@
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.clockLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
             this.tellmeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.awardLabel = new System.Windows.Forms.Label();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.strategyComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.allCategoryButton = new System.Windows.Forms.Button();
+            this.noneCategoryButton = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +91,7 @@
             // spaceStatusLabel
             // 
             this.spaceStatusLabel.Name = "spaceStatusLabel";
-            this.spaceStatusLabel.Size = new System.Drawing.Size(584, 17);
+            this.spaceStatusLabel.Size = new System.Drawing.Size(753, 17);
             this.spaceStatusLabel.Spring = true;
             // 
             // pinyinLabel
@@ -117,15 +121,16 @@
             this.clockLabel.TabIndex = 9;
             this.clockLabel.Text = "0:00:00";
             // 
-            // pictureBox1
+            // awardMedalPictureBox
             // 
-            this.pictureBox1.Image = global::flashcard.Properties.Resources.medal_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(778, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(56, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.awardMedalPictureBox.Image = global::flashcard.Properties.Resources.medal_icon;
+            this.awardMedalPictureBox.Location = new System.Drawing.Point(778, 5);
+            this.awardMedalPictureBox.Name = "awardMedalPictureBox";
+            this.awardMedalPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardMedalPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.awardMedalPictureBox.TabIndex = 10;
+            this.awardMedalPictureBox.TabStop = false;
+            this.awardMedalPictureBox.Visible = false;
             // 
             // tellmeButton
             // 
@@ -159,25 +164,67 @@
             this.awardLabel.TabIndex = 11;
             this.awardLabel.Text = "0";
             this.awardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.awardLabel.Visible = false;
             // 
-            // categoryComboBox
+            // strategyComboBox
             // 
-            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(19, 66);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(146, 21);
-            this.categoryComboBox.TabIndex = 12;
-            this.categoryComboBox.SelectionChangeCommitted += new System.EventHandler(this.categoryComboBox_SelectionChangeCommitted);
+            this.strategyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategyComboBox.FormattingEnabled = true;
+            this.strategyComboBox.Location = new System.Drawing.Point(19, 66);
+            this.strategyComboBox.Name = "strategyComboBox";
+            this.strategyComboBox.Size = new System.Drawing.Size(146, 21);
+            this.strategyComboBox.TabIndex = 12;
+            // 
+            // categoryCheckedListBox
+            // 
+            this.categoryCheckedListBox.FormattingEnabled = true;
+            this.categoryCheckedListBox.Location = new System.Drawing.Point(19, 100);
+            this.categoryCheckedListBox.Name = "categoryCheckedListBox";
+            this.categoryCheckedListBox.Size = new System.Drawing.Size(146, 304);
+            this.categoryCheckedListBox.TabIndex = 13;
+            // 
+            // allCategoryButton
+            // 
+            this.allCategoryButton.Location = new System.Drawing.Point(19, 410);
+            this.allCategoryButton.Name = "allCategoryButton";
+            this.allCategoryButton.Size = new System.Drawing.Size(66, 23);
+            this.allCategoryButton.TabIndex = 14;
+            this.allCategoryButton.Text = "All";
+            this.allCategoryButton.UseVisualStyleBackColor = true;
+            this.allCategoryButton.Click += new System.EventHandler(this.allCategoryButton_Click);
+            // 
+            // noneCategoryButton
+            // 
+            this.noneCategoryButton.Location = new System.Drawing.Point(100, 410);
+            this.noneCategoryButton.Name = "noneCategoryButton";
+            this.noneCategoryButton.Size = new System.Drawing.Size(65, 23);
+            this.noneCategoryButton.TabIndex = 15;
+            this.noneCategoryButton.Text = "None";
+            this.noneCategoryButton.UseVisualStyleBackColor = true;
+            this.noneCategoryButton.Click += new System.EventHandler(this.noneCategoryButton_Click);
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(19, 440);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(146, 23);
+            this.startButton.TabIndex = 16;
+            this.startButton.Text = "Restart";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
-            this.Controls.Add(this.categoryComboBox);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.noneCategoryButton);
+            this.Controls.Add(this.allCategoryButton);
+            this.Controls.Add(this.categoryCheckedListBox);
+            this.Controls.Add(this.strategyComboBox);
             this.Controls.Add(this.awardLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.awardMedalPictureBox);
             this.Controls.Add(this.clockLabel);
             this.Controls.Add(this.pinyinLabel);
             this.Controls.Add(this.tellmeButton);
@@ -191,7 +238,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -210,9 +257,13 @@
         private System.Windows.Forms.Timer clockTimer;
         private System.Windows.Forms.Label clockLabel;
         private System.Windows.Forms.ToolStripStatusLabel spaceStatusLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox awardMedalPictureBox;
         private System.Windows.Forms.Label awardLabel;
-        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.ComboBox strategyComboBox;
+        private System.Windows.Forms.CheckedListBox categoryCheckedListBox;
+        private System.Windows.Forms.Button allCategoryButton;
+        private System.Windows.Forms.Button noneCategoryButton;
+        private System.Windows.Forms.Button startButton;
     }
 }
 

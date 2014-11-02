@@ -7,36 +7,29 @@ namespace Flashcard
 {
     class Record
     {
-        private string category;
         private int rightCount;
         private int wrongCount;
         private DateTime recentStudy;
 
         internal static Record New()
         {
-            return new Record(null, false);
+            return new Record(false);
         }
 
-        internal Record(string category, int rightCount, int wrongCount, DateTime recentStudy)
+        internal Record(int rightCount, int wrongCount, DateTime recentStudy)
         {
-            this.category = category;
             this.rightCount = rightCount;
             this.wrongCount = wrongCount;
             this.recentStudy = recentStudy;
         }
 
-        internal Record(string category, int rightCount, int wrongCount)
-            : this(category, rightCount, wrongCount, DateTime.Now)
+        internal Record(int rightCount, int wrongCount)
+            : this(rightCount, wrongCount, DateTime.Now)
         {
         }
 
-        internal Record(string category, bool correct) : this(category, correct ? 1 : 0, correct ? 0 : 1, DateTime.Now)
+        internal Record(bool correct) : this(correct ? 1 : 0, correct ? 0 : 1, DateTime.Now)
         {
-        }
-
-        internal string getCategory()
-        {
-            return category;
         }
 
         internal void updateRecentStudyTime()
@@ -80,7 +73,7 @@ namespace Flashcard
 
         public override string ToString()
         {
-            return string.Format("{0} {1:D4} {2:D4} {3}", category, rightCount, wrongCount, recentStudy.ToString("s"));
+            return string.Format("{0:D4} {1:D4} {2}", rightCount, wrongCount, recentStudy.ToString("s"));
         }
     }
 }

@@ -62,12 +62,13 @@ namespace Flashcard
             cards.load();
 
             BindingSource source = new BindingSource();
-            source.DataSource = cards.getCategoryList();
-            categoryComboBox.DataSource = source;
+            source.DataSource = Enum.GetValues(typeof(Strategy));
+            strategyComboBox.DataSource = source;
+            categoryCheckedListBox.Items.AddRange(cards.getCategoryList().ToArray());
+            categoryCheckedListBox.SetItemChecked(0, true);
+            createStudyPlan();
 
-            cards.createStudyPlan(Strategy.MOST_FAILURE_FIRST, getCurrentCategory());
-
-            updateStatusBar(string.Format("Loaded {0} cards", cards.getCardCount()));
+            updateStatusBar(string.Format("Loaded {0} cards", cards.getTotalCardCount()));
         }
 
         private void loadRecords()
@@ -84,6 +85,14 @@ namespace Flashcard
         #endregion
 
         #region private methods
+
+        private void createStudyPlan()
+        {
+            Strategy strategy;
+            Enum.TryParse(strategyComboBox.SelectedValue.ToString(), out strategy);
+            cards.createStudyPlan(strategy, getCurrentCategory());
+            updateStatusBar(string.Format("Created study plan: {0}", cards.getStudyPlanCardCount()));
+        }
 
         private void showResult(bool right)
         {
@@ -104,9 +113,9 @@ namespace Flashcard
             resultPictureBox.Visible = false;
         }
 
-        private string getCurrentCategory()
+        private string[] getCurrentCategory()
         {
-            return categoryComboBox.SelectedItem.ToString();
+            return categoryCheckedListBox.CheckedItems.Cast<string>().ToArray();
         }
 
         private void displayNextCharacter()
@@ -135,7 +144,15 @@ namespace Flashcard
 
         private void updateAward()
         {
-            awardLabel.Text = award.getPoints().ToString();
+            int points = award.getPoints();
+            if (points == 0)
+            {
+                return;
+            }
+
+            awardLabel.Text = points.ToString();
+            awardLabel.Visible = true;
+            awardMedalPictureBox.Visible = true;
         }
 
         private char getCurrentCharacter()
@@ -150,7 +167,7 @@ namespace Flashcard
             showPinyinHint();
             Pinyin expectedPinyin = getCurrentCharacterPinyin();
             bool correct = expectedPinyin.match(pinyinTextBox.Text);
-            records.update(getCurrentCharacter(), getCurrentCategory(), correct);
+            records.update(getCurrentCharacter(), correct);
             showResult(correct);
 
             System.Threading.Thread.Sleep(1000);
@@ -163,6 +180,14 @@ namespace Flashcard
             {
                 clearResult();
             }
+        }
+
+        private void setAllCategoryCheckState(CheckState state)
+        {
+            for (int i = 0; i <= (categoryCheckedListBox.Items.Count - 1); i++)
+            {
+                categoryCheckedListBox.SetItemCheckState(i, state);
+            }  
         }
 
         #endregion
@@ -185,16 +210,10 @@ namespace Flashcard
             checkResultAndMoveToNext();
         }
 
-        private void categoryComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            cards.createStudyPlan(Strategy.MOST_FAILURE_FIRST, getCurrentCategory());
-            displayNextCharacter();
-        }
-
         private void tellmeButton_Click(object sender, EventArgs e)
         {
             showPinyinHint();
-            records.increaseWrongCount(getCurrentCharacter(), getCurrentCategory(), 5);
+            records.increaseWrongCount(getCurrentCharacter(), 5);
         }
 
         private void clockTimer_Tick(object sender, EventArgs e)
@@ -203,6 +222,22 @@ namespace Flashcard
             clockLabel.Text = string.Format("{0}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
             clockLabel.Refresh();
             updateAward();
+        }
+
+        private void allCategoryButton_Click(object sender, EventArgs e)
+        {
+            setAllCategoryCheckState(CheckState.Checked);
+        }
+
+        private void noneCategoryButton_Click(object sender, EventArgs e)
+        {
+            setAllCategoryCheckState(CheckState.Unchecked);
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            createStudyPlan();
+            displayNextCharacter();
         }
 
         #endregion

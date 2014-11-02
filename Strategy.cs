@@ -8,7 +8,7 @@ namespace Flashcard
 {
     enum Strategy
     {
-        SEQUENCE,
-        MOST_FAILURE_FIRST
+        MOST_FAILURE_FIRST,
+        SEQUENCIAL
     }
 }

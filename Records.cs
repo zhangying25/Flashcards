@@ -15,9 +15,9 @@ namespace Flashcard
 
         /**
          * Records file format: 
-         *   word category count_of_right count_of_wrong date_of_last_study
-         *     困 第一册   15              2              2013-10-30T14:05:28
-         *     难 第三册   12              28             2014-11-30T17:15:47
+         *   word count_of_right count_of_wrong date_of_last_study
+         *     困     15            2              2013-10-30T14:05:28
+         *     难     12           28             2014-11-30T17:15:47
          **/
         internal void load()
         {
@@ -36,10 +36,10 @@ namespace Flashcard
                 }
 
                 string[] info = line.Split(' ');
-                Debug.Assert(info.Length == 5, "Should include 5 parts: character, category, right count, wrong count, and recent study date");
+                Debug.Assert(info.Length == 4, "Should include 5 parts: character, right count, wrong count, and recent study date");
                 Debug.Assert(info[0].Length == 1, "The first column is the Chinese character");
 
-                records.Add(info[0][0], new Record(info[1], int.Parse(info[2]), int.Parse(info[3]), DateTime.Parse(info[4])));
+                records.Add(info[0][0], new Record(int.Parse(info[1]), int.Parse(info[2]), DateTime.Parse(info[3])));
             }
         }
 
@@ -54,7 +54,7 @@ namespace Flashcard
             File.WriteAllLines(RECORDS_FILENAME, lines, Encoding.UTF8);
         }
 
-        internal void update(char character, string category, bool correct)
+        internal void update(char character, bool correct)
         {
             if (records.ContainsKey(character))
             {
@@ -62,11 +62,11 @@ namespace Flashcard
             }
             else
             {
-                records.Add(character, new Record(category, correct));
+                records.Add(character, new Record(correct));
             }
         }
 
-        internal void increaseWrongCount(char character, string category, int count)
+        internal void increaseWrongCount(char character, int count)
         {
             if (records.ContainsKey(character))
             {
@@ -74,7 +74,7 @@ namespace Flashcard
             }
             else
             {
-                records.Add(character, new Record(category, 0, count));
+                records.Add(character, new Record(0, count));
             }
         }
 

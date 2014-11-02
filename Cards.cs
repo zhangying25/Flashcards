@@ -14,7 +14,6 @@ namespace Flashcard
         private List<string> categories;
         private List<KeyValuePair<char, Record>> studyPlan;
         private int currentCard = -1;
-        private Strategy strategy = Strategy.SEQUENCE;
 
         internal Cards(Records records)
         {
@@ -47,6 +46,9 @@ namespace Flashcard
                 categories.Add(cardsInfo[0]);
                 cards.Add(cardsInfo[0], cardsInfo[1]);
             }
+
+            // Make the new words show up on the top
+            categories.Reverse();
         }
 
         internal List<string> getCategoryList()
@@ -54,7 +56,12 @@ namespace Flashcard
             return categories;
         }
 
-        internal int getCardCount()
+        internal int getStudyPlanCardCount()
+        {
+            return studyPlan.Count;
+        }
+
+        internal int getTotalCardCount()
         {
             int count = 0;
 
@@ -68,6 +75,11 @@ namespace Flashcard
 
         internal string getCard()
         {
+            if (studyPlan.Count == 0)
+            {
+                return null;
+            }
+
             ++currentCard;
             if (currentCard == studyPlan.Count)
             {
@@ -88,7 +100,7 @@ namespace Flashcard
 
             switch (strategy)
             {
-                case Strategy.SEQUENCE:
+                case Strategy.SEQUENCIAL:
                     studyPlan = createSequentialStudyPlan(categories);
                     break;
                 case Strategy.MOST_FAILURE_FIRST:
@@ -120,7 +132,6 @@ namespace Flashcard
         private List<KeyValuePair<char, Record>> createTopFailureFirstPlan(string[] categories)
         {
             List<KeyValuePair<char, Record>> plan = createSequentialStudyPlan(categories);
-
             List<KeyValuePair<char, Record>> sortedPlan = plan.OrderByDescending(o => o.Value.getWrongPercentile()).ToList();
 
             return sortedPlan;
