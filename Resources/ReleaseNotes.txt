@@ -1,0 +1,20 @@
+﻿v 0.1
+
+# PinYin input is case insensitive
+# Clock
+# Show how many characters studied this time
+# Group cards in different category, such as lessons
+# Study histoary
+# I don't know, tell me -- weight - 5
+# Study by category / lesson
+# Top failure order strategy
+# Sequential order strategy
+
+To do:
+1. go through all cards
+3. 100% correct + 5 times -- don't show up
+4. 90% correct + >10 times -- don't show up
+11. game + trophy
+12. pronouciation
+13. more fonts
+
