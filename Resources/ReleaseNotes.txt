@@ -9,12 +9,13 @@
 # Study by category / lesson
 # Top failure order strategy
 # Sequential order strategy
+# go through all cards
+# pronouciation
 
 To do:
-1. go through all cards
 3. 100% correct + 5 times -- don't show up
 4. 90% correct + >10 times -- don't show up
 11. game + trophy
-12. pronouciation
+12. wav files
 13. more fonts
 

@@ -17,20 +17,20 @@ namespace Flashcard
          *   studied_character_count  points  start_time            end_time points
          *   20                       15      2013-10-30T14:05:28   2014-11-30T17:15:47
          **/
-        internal static void save(Point award, DateTime startTime)
+        internal static void Save(Point award, DateTime startTime)
         {
-            if (award.didntLearnAny())
+            if (award.DidntLearnAny())
             {
                 return;
             }
 
-            string history = string.Format("{0:D4} {1:D6} {2} {3}", award.getLearntCharacterCount(), award.getPoints(), 
+            string history = string.Format("{0:D4} {1:D6} {2} {3}", award.getLearntCharacterCount(), award.GetPoints(), 
                 startTime.ToString("s"), DateTime.Now.ToString("s"));
 
             File.AppendAllLines(HISTORY_FILENAME, new string[] { history }, Encoding.UTF8);
         }
 
-        internal static int getLatestPoints()
+        internal static int GetLatestPoints()
         {
             if (!File.Exists(HISTORY_FILENAME))
             {

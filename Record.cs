@@ -32,33 +32,33 @@ namespace Flashcard
         {
         }
 
-        internal void updateRecentStudyTime()
+        internal void UpdateRecentStudyTime()
         {
             recentStudy = DateTime.Now;
         }
 
-        internal void updateWrongCount(int count)
+        internal void UpdateWrongCount(int count)
         {
             wrongCount += count;
-            updateRecentStudyTime();
+            UpdateRecentStudyTime();
         }
 
-        internal int getRightCount()
+        internal int GetRightCount()
         {
             return rightCount;
         }
 
-        internal int getWrongCount()
+        internal int GetWrongCount()
         {
             return wrongCount;
         }
 
-        internal int getWrongPercentile()
+        internal int GetWrongPercentile()
         {
             return wrongCount * 100 / (wrongCount + rightCount);
         }
 
-        internal void updateCount(bool correct)
+        internal void UpdateCount(bool correct)
         {
             if (correct)
             {
@@ -68,7 +68,7 @@ namespace Flashcard
             {
                 ++wrongCount;
             }
-            updateRecentStudyTime();
+            UpdateRecentStudyTime();
         }
 
         public override string ToString()

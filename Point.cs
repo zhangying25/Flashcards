@@ -16,7 +16,7 @@ namespace Flashcard
             points = initialCount;
         }
 
-        internal int learnOneMore()
+        internal int LearnOneMore()
         {
             return ++learntCharacterCount;
         }
@@ -26,12 +26,12 @@ namespace Flashcard
             return learntCharacterCount;
         }
 
-        internal bool didntLearnAny()
+        internal bool DidntLearnAny()
         {
             return learntCharacterCount == 0;
         }
 
-        internal int getPoints()
+        internal int GetPoints()
         {
             return points + learntCharacterCount / 20;
         }

@@ -16,7 +16,7 @@ namespace Flashcard
             this.values.AddRange(values.Split('/'));
         }
 
-        internal bool match(string input)
+        internal bool Match(string input)
         {
             foreach (string value in values)
             {
@@ -29,9 +29,14 @@ namespace Flashcard
             return false;
         }
 
-        internal string getPinyinString()
+        internal string GetPinyinString()
         {
             return string.Join(", ", values);
+        }
+
+        internal List<string> GetPinyinList()
+        {
+            return values;
         }
     }
 }

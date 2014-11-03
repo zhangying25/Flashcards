@@ -25,7 +25,7 @@ namespace Flashcard
          *     Lesson-1 困难
          *     Lesson-2 勤劳勇敢
          **/
-        internal void load()
+        internal void Load()
         {
             string[] lines = System.IO.File.ReadAllLines(FLASH_CARD_FILENAME, Encoding.UTF8);
             
@@ -51,17 +51,17 @@ namespace Flashcard
             categories.Reverse();
         }
 
-        internal List<string> getCategoryList()
+        internal List<string> GetCategoryList()
         {
             return categories;
         }
 
-        internal int getStudyPlanCardCount()
+        internal int GetStudyPlanCardCount()
         {
             return studyPlan.Count;
         }
 
-        internal int getTotalCardCount()
+        internal int GetTotalCardCount()
         {
             int count = 0;
 
@@ -73,7 +73,7 @@ namespace Flashcard
             return count;
         }
 
-        internal string getCard()
+        internal string GetCard()
         {
             if (studyPlan.Count == 0)
             {
@@ -89,29 +89,29 @@ namespace Flashcard
             return studyPlan[currentCard].Key.ToString();
         }
 
-        internal void reset()
+        internal void Reset()
         {
             currentCard = -1;
         }
 
-        internal void createStudyPlan(Strategy strategy, params string[] categories)
+        internal void CreateStudyPlan(Strategy strategy, params string[] categories)
         {
-            reset();
+            Reset();
 
             switch (strategy)
             {
                 case Strategy.SEQUENCIAL:
-                    studyPlan = createSequentialStudyPlan(categories);
+                    studyPlan = CreateSequentialStudyPlan(categories);
                     break;
                 case Strategy.MOST_FAILURE_FIRST:
-                    studyPlan = createTopFailureFirstPlan(categories);
+                    studyPlan = CreateTopFailureFirstPlan(categories);
                     break;
                 default:
                     throw new ArgumentException("Unknown strategy " + strategy);
             }
         }
 
-        private List<KeyValuePair<char, Record>> createSequentialStudyPlan(string[] categories)
+        private List<KeyValuePair<char, Record>> CreateSequentialStudyPlan(string[] categories)
         {
             List<KeyValuePair<char, Record>> plan = new List<KeyValuePair<char, Record>>();
 
@@ -121,7 +121,7 @@ namespace Flashcard
                 for (int i = 0; i < lesson.Length; ++i)
                 {
                     char character = cards[category][i];
-                    Record record = records.getRecord(character);
+                    Record record = records.GetRecord(character);
                     plan.Add(new KeyValuePair<char, Record>(character, record));
                 }
             }
@@ -129,10 +129,10 @@ namespace Flashcard
             return plan;
         }
 
-        private List<KeyValuePair<char, Record>> createTopFailureFirstPlan(string[] categories)
+        private List<KeyValuePair<char, Record>> CreateTopFailureFirstPlan(string[] categories)
         {
-            List<KeyValuePair<char, Record>> plan = createSequentialStudyPlan(categories);
-            List<KeyValuePair<char, Record>> sortedPlan = plan.OrderByDescending(o => o.Value.getWrongPercentile()).ToList();
+            List<KeyValuePair<char, Record>> plan = CreateSequentialStudyPlan(categories);
+            List<KeyValuePair<char, Record>> sortedPlan = plan.OrderByDescending(o => o.Value.GetWrongPercentile()).ToList();
 
             return sortedPlan;
         }

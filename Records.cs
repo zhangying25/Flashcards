@@ -19,7 +19,7 @@ namespace Flashcard
          *     困     15            2              2013-10-30T14:05:28
          *     难     12           28             2014-11-30T17:15:47
          **/
-        internal void load()
+        internal void Load()
         {
             records = new Dictionary<char, Record>();
             if (!File.Exists(RECORDS_FILENAME))
@@ -43,7 +43,7 @@ namespace Flashcard
             }
         }
 
-        internal void save()
+        internal void Save()
         {
             List<string> lines = new List<string>();
             foreach (char character in records.Keys)
@@ -54,11 +54,11 @@ namespace Flashcard
             File.WriteAllLines(RECORDS_FILENAME, lines, Encoding.UTF8);
         }
 
-        internal void update(char character, bool correct)
+        internal void Update(char character, bool correct)
         {
             if (records.ContainsKey(character))
             {
-                records[character].updateCount(correct);
+                records[character].UpdateCount(correct);
             }
             else
             {
@@ -66,11 +66,11 @@ namespace Flashcard
             }
         }
 
-        internal void increaseWrongCount(char character, int count)
+        internal void IncreaseWrongCount(char character, int count)
         {
             if (records.ContainsKey(character))
             {
-                records[character].updateWrongCount(count);
+                records[character].UpdateWrongCount(count);
             }
             else
             {
@@ -78,7 +78,7 @@ namespace Flashcard
             }
         }
 
-        internal Record getRecord(char character)
+        internal Record GetRecord(char character)
         {
             if (!records.ContainsKey(character))
             {
