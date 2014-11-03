@@ -42,8 +42,8 @@
             this.allCategoryButton = new System.Windows.Forms.Button();
             this.noneCategoryButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
-            this.tellmeButton = new System.Windows.Forms.Button();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
+            this.tellmeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.characterLabel = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
@@ -170,6 +170,17 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
+            // awardMedalPictureBox
+            // 
+            this.awardMedalPictureBox.Image = global::flashcard.Properties.Resources.medal_icon;
+            this.awardMedalPictureBox.Location = new System.Drawing.Point(778, 5);
+            this.awardMedalPictureBox.Name = "awardMedalPictureBox";
+            this.awardMedalPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardMedalPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.awardMedalPictureBox.TabIndex = 10;
+            this.awardMedalPictureBox.TabStop = false;
+            this.awardMedalPictureBox.Visible = false;
+            // 
             // tellmeButton
             // 
             this.tellmeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -181,16 +192,6 @@
             this.tellmeButton.TabIndex = 7;
             this.tellmeButton.UseVisualStyleBackColor = true;
             this.tellmeButton.Click += new System.EventHandler(this.tellmeButton_Click);
-            // 
-            // awardMedalPictureBox
-            // 
-            this.awardMedalPictureBox.Location = new System.Drawing.Point(778, 5);
-            this.awardMedalPictureBox.Name = "awardMedalPictureBox";
-            this.awardMedalPictureBox.Size = new System.Drawing.Size(56, 50);
-            this.awardMedalPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.awardMedalPictureBox.TabIndex = 10;
-            this.awardMedalPictureBox.TabStop = false;
-            this.awardMedalPictureBox.Visible = false;
             // 
             // resultPictureBox
             // 
@@ -233,6 +234,7 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.pinyinTextBox);
             this.Controls.Add(this.characterLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Flash Card";
