@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.characterLabel = new System.Windows.Forms.Label();
             this.pinyinTextBox = new System.Windows.Forms.TextBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -37,29 +36,20 @@
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.clockLabel = new System.Windows.Forms.Label();
-            this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
-            this.tellmeButton = new System.Windows.Forms.Button();
-            this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.awardLabel = new System.Windows.Forms.Label();
             this.strategyComboBox = new System.Windows.Forms.ComboBox();
             this.categoryCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.allCategoryButton = new System.Windows.Forms.Button();
             this.noneCategoryButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
+            this.tellmeButton = new System.Windows.Forms.Button();
+            this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
+            this.resultPictureBox = new System.Windows.Forms.PictureBox();
+            this.characterLabel = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // characterLabel
-            // 
-            this.characterLabel.AutoSize = true;
-            this.characterLabel.Font = new System.Drawing.Font("KaiTi", 255.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.characterLabel.Location = new System.Drawing.Point(171, 66);
-            this.characterLabel.Name = "characterLabel";
-            this.characterLabel.Size = new System.Drawing.Size(485, 341);
-            this.characterLabel.TabIndex = 2;
-            this.characterLabel.Text = "字";
             // 
             // pinyinTextBox
             // 
@@ -121,39 +111,6 @@
             this.clockLabel.TabIndex = 9;
             this.clockLabel.Text = "0:00:00";
             // 
-            // awardMedalPictureBox
-            // 
-            this.awardMedalPictureBox.Image = global::flashcard.Properties.Resources.medal_icon;
-            this.awardMedalPictureBox.Location = new System.Drawing.Point(778, 5);
-            this.awardMedalPictureBox.Name = "awardMedalPictureBox";
-            this.awardMedalPictureBox.Size = new System.Drawing.Size(56, 50);
-            this.awardMedalPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.awardMedalPictureBox.TabIndex = 10;
-            this.awardMedalPictureBox.TabStop = false;
-            this.awardMedalPictureBox.Visible = false;
-            // 
-            // tellmeButton
-            // 
-            this.tellmeButton.BackgroundImage = global::flashcard.Properties.Resources.dont_know;
-            this.tellmeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tellmeButton.Location = new System.Drawing.Point(662, 427);
-            this.tellmeButton.Name = "tellmeButton";
-            this.tellmeButton.Size = new System.Drawing.Size(95, 92);
-            this.tellmeButton.TabIndex = 7;
-            this.tellmeButton.UseVisualStyleBackColor = true;
-            this.tellmeButton.Click += new System.EventHandler(this.tellmeButton_Click);
-            // 
-            // resultPictureBox
-            // 
-            this.resultPictureBox.Image = global::flashcard.Properties.Resources.Right;
-            this.resultPictureBox.Location = new System.Drawing.Point(662, 325);
-            this.resultPictureBox.Name = "resultPictureBox";
-            this.resultPictureBox.Size = new System.Drawing.Size(95, 83);
-            this.resultPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.resultPictureBox.TabIndex = 6;
-            this.resultPictureBox.TabStop = false;
-            this.resultPictureBox.Visible = false;
-            // 
             // awardLabel
             // 
             this.awardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,6 +169,50 @@
             this.startButton.Text = "Restart";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // tellmeButton
+            // 
+            this.tellmeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tellmeButton.BackgroundImage = global::flashcard.Properties.Resources.dont_know;
+            this.tellmeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tellmeButton.Location = new System.Drawing.Point(662, 427);
+            this.tellmeButton.Name = "tellmeButton";
+            this.tellmeButton.Size = new System.Drawing.Size(95, 92);
+            this.tellmeButton.TabIndex = 7;
+            this.tellmeButton.UseVisualStyleBackColor = true;
+            this.tellmeButton.Click += new System.EventHandler(this.tellmeButton_Click);
+            // 
+            // awardMedalPictureBox
+            // 
+            this.awardMedalPictureBox.Location = new System.Drawing.Point(778, 5);
+            this.awardMedalPictureBox.Name = "awardMedalPictureBox";
+            this.awardMedalPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardMedalPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.awardMedalPictureBox.TabIndex = 10;
+            this.awardMedalPictureBox.TabStop = false;
+            this.awardMedalPictureBox.Visible = false;
+            // 
+            // resultPictureBox
+            // 
+            this.resultPictureBox.Location = new System.Drawing.Point(662, 325);
+            this.resultPictureBox.Name = "resultPictureBox";
+            this.resultPictureBox.Size = new System.Drawing.Size(95, 83);
+            this.resultPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.resultPictureBox.TabIndex = 6;
+            this.resultPictureBox.TabStop = false;
+            this.resultPictureBox.Visible = false;
+            // 
+            // characterLabel
+            // 
+            this.characterLabel.AutoSize = true;
+            this.characterLabel.Font = new System.Drawing.Font("KaiTi", 255.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.characterLabel.Image = global::flashcard.Properties.Resources.Frame;
+            this.characterLabel.Location = new System.Drawing.Point(171, 66);
+            this.characterLabel.Name = "characterLabel";
+            this.characterLabel.Size = new System.Drawing.Size(485, 341);
+            this.characterLabel.TabIndex = 2;
+            this.characterLabel.Text = "字";
+            this.characterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 

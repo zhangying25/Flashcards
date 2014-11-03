@@ -127,6 +127,7 @@
     <None Include="Resources\Coin.PNG" />
     <Content Include="Resources\dont-know.png" />
     <None Include="Resources\medal-icon.png" />
+    <None Include="Resources\Frame.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />
