@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,11 @@ namespace Flashcard
     class ChineseDictionary
     {
         private const string DICTIONARY_FILENAME = "ChineseDictionary.txt";
-        private Dictionary<string, Pinyin> dictionary;
+        private Dictionary<char, Pinyin> dictionary;
 
         internal ChineseDictionary()
         {
-            dictionary = new Dictionary<string, Pinyin>();
+            dictionary = new Dictionary<char, Pinyin>();
         }
 
         /**
@@ -25,7 +26,7 @@ namespace Flashcard
         {
             string[] lines = System.IO.File.ReadAllLines(DICTIONARY_FILENAME, Encoding.UTF8);
 
-            dictionary = new Dictionary<string, Pinyin>();
+            dictionary = new Dictionary<char, Pinyin>();
             foreach (string line in lines)
             {
                 if (String.IsNullOrWhiteSpace(line))
@@ -33,7 +34,9 @@ namespace Flashcard
                     continue;
                 }
                 string[] values = line.Split(new char[] { ' ' }, 2);
-                dictionary.Add(values[0], new Pinyin(values[1]));
+                Debug.Assert(values.Length == 2);
+                Debug.Assert(values[0].Length == 1);
+                dictionary.Add(values[0][0], new Pinyin(values[1]));
             }
         }
 
@@ -42,19 +45,30 @@ namespace Flashcard
             return dictionary.Keys.Count;
         }
 
+        private void CheckAvailability(char character)
+        {
+            if (!dictionary.ContainsKey(character))
+            {
+                System.Windows.Forms.MessageBox.Show(string.Format("Can't find {0} in dictionary. Please fix!!!", character));
+            }
+        }
+
         internal bool IsCorrect(char character, string pinyin)
         {
-            return dictionary[character.ToString()].Match(pinyin);
+            CheckAvailability(character);
+            return dictionary[character].Match(pinyin);
         }
 
         internal string GetPinyinHint(char character)
         {
-            return dictionary[character.ToString()].GetPinyinString();
+            CheckAvailability(character);
+            return dictionary[character].GetPinyinString();
         }
 
         internal void Pronounce(char character)
         {
-            foreach (string pinyin in dictionary[character.ToString()].GetPinyinList())
+            CheckAvailability(character);
+            foreach (string pinyin in dictionary[character].GetPinyinList())
             {
                 Pronouciation.Play(pinyin);
             }
