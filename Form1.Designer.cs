@@ -36,17 +36,23 @@
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.clockLabel = new System.Windows.Forms.Label();
-            this.awardLabel = new System.Windows.Forms.Label();
+            this.awardMedalLabel = new System.Windows.Forms.Label();
             this.strategyComboBox = new System.Windows.Forms.ComboBox();
             this.categoryCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.allCategoryButton = new System.Windows.Forms.Button();
             this.noneCategoryButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
+            this.awardTrophyLabel = new System.Windows.Forms.Label();
+            this.awardHerculesLabel = new System.Windows.Forms.Label();
+            this.awardHerculesPictureBox = new System.Windows.Forms.PictureBox();
+            this.awardTrophyPictureBox = new System.Windows.Forms.PictureBox();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
             this.tellmeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.characterLabel = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardTrophyPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -111,17 +117,17 @@
             this.clockLabel.TabIndex = 9;
             this.clockLabel.Text = "0:00:00";
             // 
-            // awardLabel
+            // awardMedalLabel
             // 
-            this.awardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awardLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.awardLabel.Location = new System.Drawing.Point(706, 18);
-            this.awardLabel.Name = "awardLabel";
-            this.awardLabel.Size = new System.Drawing.Size(72, 23);
-            this.awardLabel.TabIndex = 11;
-            this.awardLabel.Text = "0";
-            this.awardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.awardLabel.Visible = false;
+            this.awardMedalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.awardMedalLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.awardMedalLabel.Location = new System.Drawing.Point(756, 18);
+            this.awardMedalLabel.Name = "awardMedalLabel";
+            this.awardMedalLabel.Size = new System.Drawing.Size(29, 23);
+            this.awardMedalLabel.TabIndex = 11;
+            this.awardMedalLabel.Text = "0";
+            this.awardMedalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.awardMedalLabel.Visible = false;
             // 
             // strategyComboBox
             // 
@@ -169,6 +175,52 @@
             this.startButton.Text = "Restart";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // awardTrophyLabel
+            // 
+            this.awardTrophyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.awardTrophyLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.awardTrophyLabel.Location = new System.Drawing.Point(703, 18);
+            this.awardTrophyLabel.Name = "awardTrophyLabel";
+            this.awardTrophyLabel.Size = new System.Drawing.Size(29, 23);
+            this.awardTrophyLabel.TabIndex = 18;
+            this.awardTrophyLabel.Text = "0";
+            this.awardTrophyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.awardTrophyLabel.Visible = false;
+            // 
+            // awardHerculesLabel
+            // 
+            this.awardHerculesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.awardHerculesLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.awardHerculesLabel.Location = new System.Drawing.Point(579, 18);
+            this.awardHerculesLabel.Name = "awardHerculesLabel";
+            this.awardHerculesLabel.Size = new System.Drawing.Size(91, 23);
+            this.awardHerculesLabel.TabIndex = 20;
+            this.awardHerculesLabel.Text = "0";
+            this.awardHerculesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.awardHerculesLabel.Visible = false;
+            // 
+            // awardHerculesPictureBox
+            // 
+            this.awardHerculesPictureBox.Image = global::flashcard.Properties.Resources.hercules;
+            this.awardHerculesPictureBox.Location = new System.Drawing.Point(657, 5);
+            this.awardHerculesPictureBox.Name = "awardHerculesPictureBox";
+            this.awardHerculesPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardHerculesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.awardHerculesPictureBox.TabIndex = 19;
+            this.awardHerculesPictureBox.TabStop = false;
+            this.awardHerculesPictureBox.Visible = false;
+            // 
+            // awardTrophyPictureBox
+            // 
+            this.awardTrophyPictureBox.Image = global::flashcard.Properties.Resources.trophy;
+            this.awardTrophyPictureBox.Location = new System.Drawing.Point(714, 5);
+            this.awardTrophyPictureBox.Name = "awardTrophyPictureBox";
+            this.awardTrophyPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardTrophyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.awardTrophyPictureBox.TabIndex = 17;
+            this.awardTrophyPictureBox.TabStop = false;
+            this.awardTrophyPictureBox.Visible = false;
             // 
             // awardMedalPictureBox
             // 
@@ -220,12 +272,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
+            this.Controls.Add(this.awardHerculesLabel);
+            this.Controls.Add(this.awardHerculesPictureBox);
+            this.Controls.Add(this.awardTrophyLabel);
+            this.Controls.Add(this.awardTrophyPictureBox);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.noneCategoryButton);
             this.Controls.Add(this.allCategoryButton);
             this.Controls.Add(this.categoryCheckedListBox);
             this.Controls.Add(this.strategyComboBox);
-            this.Controls.Add(this.awardLabel);
+            this.Controls.Add(this.awardMedalLabel);
             this.Controls.Add(this.awardMedalPictureBox);
             this.Controls.Add(this.clockLabel);
             this.Controls.Add(this.pinyinLabel);
@@ -241,6 +297,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardTrophyPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -261,12 +319,16 @@
         private System.Windows.Forms.Label clockLabel;
         private System.Windows.Forms.ToolStripStatusLabel spaceStatusLabel;
         private System.Windows.Forms.PictureBox awardMedalPictureBox;
-        private System.Windows.Forms.Label awardLabel;
+        private System.Windows.Forms.Label awardMedalLabel;
         private System.Windows.Forms.ComboBox strategyComboBox;
         private System.Windows.Forms.CheckedListBox categoryCheckedListBox;
         private System.Windows.Forms.Button allCategoryButton;
         private System.Windows.Forms.Button noneCategoryButton;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Label awardTrophyLabel;
+        private System.Windows.Forms.PictureBox awardTrophyPictureBox;
+        private System.Windows.Forms.Label awardHerculesLabel;
+        private System.Windows.Forms.PictureBox awardHerculesPictureBox;
     }
 }
 

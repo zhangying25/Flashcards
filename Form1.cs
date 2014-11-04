@@ -124,14 +124,28 @@ namespace Flashcard
         private void UpdateAward()
         {
             int points = award.GetPoints();
-            if (points == 0)
-            {
-                return;
-            }
+            int medal = points - points / 10 * 10;
+            int trophy = points / 10 - points / 100 * 10;
+            int hercules = points / 100;
 
-            awardLabel.Text = points.ToString();
-            awardLabel.Visible = true;
-            awardMedalPictureBox.Visible = true;
+            if (points > 0)
+            {
+                awardMedalLabel.Text = medal.ToString();
+                awardMedalLabel.Visible = true;
+                awardMedalPictureBox.Visible = true;
+            }
+            if (points >= 10)
+            {
+                awardTrophyLabel.Text = trophy.ToString();
+                awardTrophyLabel.Visible = true;
+                awardTrophyPictureBox.Visible = true;
+            }
+            if (points >= 100)
+            {
+                awardHerculesLabel.Text = hercules.ToString();
+                awardHerculesLabel.Visible = true;
+                awardHerculesPictureBox.Visible = true;
+            }
         }
 
         private char GetCurrentCharacter()
@@ -215,6 +229,7 @@ namespace Flashcard
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            startTime = DateTime.Now;
             CreateStudyPlan();
             DisplayNextCharacter();
         }

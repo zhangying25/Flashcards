@@ -122,12 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ChineseDictionary.txt" />
+    <None Include="Resources\trophy.png" />
     <None Include="Resources\library.png" />
     <None Include="Resources\books.jpg" />
     <None Include="Resources\Coin.PNG" />
     <Content Include="Resources\dont-know.png" />
     <None Include="Resources\medal-icon.png" />
     <None Include="Resources\Frame.png" />
+    <None Include="Resources\hercules.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />
