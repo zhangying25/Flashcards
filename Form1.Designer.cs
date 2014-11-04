@@ -35,7 +35,6 @@
             this.spaceStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
-            this.clockLabel = new System.Windows.Forms.Label();
             this.awardMedalLabel = new System.Windows.Forms.Label();
             this.strategyComboBox = new System.Windows.Forms.ComboBox();
             this.categoryCheckedListBox = new System.Windows.Forms.CheckedListBox();
@@ -51,6 +50,7 @@
             this.tellmeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.characterLabel = new System.Windows.Forms.Label();
+            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardTrophyPictureBox)).BeginInit();
@@ -72,23 +72,25 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel,
-            this.spaceStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 545);
+            this.spaceStatusLabel,
+            this.timerStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 541);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(834, 22);
+            this.statusStrip.Size = new System.Drawing.Size(834, 26);
             this.statusStrip.TabIndex = 5;
             this.statusStrip.Text = "statusStrip";
             // 
             // statusLabel
             // 
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(66, 17);
+            this.statusLabel.Size = new System.Drawing.Size(88, 21);
             this.statusLabel.Text = "statusLabel";
             // 
             // spaceStatusLabel
             // 
             this.spaceStatusLabel.Name = "spaceStatusLabel";
-            this.spaceStatusLabel.Size = new System.Drawing.Size(753, 17);
+            this.spaceStatusLabel.Size = new System.Drawing.Size(692, 21);
             this.spaceStatusLabel.Spring = true;
             // 
             // pinyinLabel
@@ -108,16 +110,6 @@
             this.clockTimer.Interval = 1000;
             this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
             // 
-            // clockLabel
-            // 
-            this.clockLabel.AutoSize = true;
-            this.clockLabel.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clockLabel.Location = new System.Drawing.Point(12, 18);
-            this.clockLabel.Name = "clockLabel";
-            this.clockLabel.Size = new System.Drawing.Size(106, 37);
-            this.clockLabel.TabIndex = 9;
-            this.clockLabel.Text = "0:00:00";
-            // 
             // awardMedalLabel
             // 
             this.awardMedalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,7 +126,7 @@
             // 
             this.strategyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.strategyComboBox.FormattingEnabled = true;
-            this.strategyComboBox.Location = new System.Drawing.Point(19, 66);
+            this.strategyComboBox.Location = new System.Drawing.Point(19, 34);
             this.strategyComboBox.Name = "strategyComboBox";
             this.strategyComboBox.Size = new System.Drawing.Size(146, 21);
             this.strategyComboBox.TabIndex = 12;
@@ -142,9 +134,9 @@
             // categoryCheckedListBox
             // 
             this.categoryCheckedListBox.FormattingEnabled = true;
-            this.categoryCheckedListBox.Location = new System.Drawing.Point(19, 100);
+            this.categoryCheckedListBox.Location = new System.Drawing.Point(19, 70);
             this.categoryCheckedListBox.Name = "categoryCheckedListBox";
-            this.categoryCheckedListBox.Size = new System.Drawing.Size(146, 304);
+            this.categoryCheckedListBox.Size = new System.Drawing.Size(146, 334);
             this.categoryCheckedListBox.TabIndex = 13;
             // 
             // allCategoryButton
@@ -206,11 +198,12 @@
             this.gameButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gameButton.BackgroundImage = global::flashcard.Properties.Resources.Game_Controller;
             this.gameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameButton.Location = new System.Drawing.Point(561, 427);
+            this.gameButton.Location = new System.Drawing.Point(690, 425);
             this.gameButton.Name = "gameButton";
             this.gameButton.Size = new System.Drawing.Size(95, 92);
             this.gameButton.TabIndex = 21;
             this.gameButton.UseVisualStyleBackColor = true;
+            this.gameButton.Visible = false;
             // 
             // awardHerculesPictureBox
             // 
@@ -250,7 +243,7 @@
             this.tellmeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tellmeButton.BackgroundImage = global::flashcard.Properties.Resources.dont_know;
             this.tellmeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tellmeButton.Location = new System.Drawing.Point(662, 427);
+            this.tellmeButton.Location = new System.Drawing.Point(575, 425);
             this.tellmeButton.Name = "tellmeButton";
             this.tellmeButton.Size = new System.Drawing.Size(95, 92);
             this.tellmeButton.TabIndex = 7;
@@ -260,7 +253,7 @@
             // 
             // resultPictureBox
             // 
-            this.resultPictureBox.Location = new System.Drawing.Point(662, 325);
+            this.resultPictureBox.Location = new System.Drawing.Point(575, 324);
             this.resultPictureBox.Name = "resultPictureBox";
             this.resultPictureBox.Size = new System.Drawing.Size(95, 83);
             this.resultPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -280,6 +273,13 @@
             this.characterLabel.Text = "字";
             this.characterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timerStatusLabel
+            // 
+            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerStatusLabel.Name = "timerStatusLabel";
+            this.timerStatusLabel.Size = new System.Drawing.Size(61, 21);
+            this.timerStatusLabel.Text = "0:00:00";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,7 +297,6 @@
             this.Controls.Add(this.categoryCheckedListBox);
             this.Controls.Add(this.strategyComboBox);
             this.Controls.Add(this.awardMedalPictureBox);
-            this.Controls.Add(this.clockLabel);
             this.Controls.Add(this.pinyinLabel);
             this.Controls.Add(this.tellmeButton);
             this.Controls.Add(this.resultPictureBox);
@@ -330,7 +329,6 @@
         private System.Windows.Forms.Button tellmeButton;
         private System.Windows.Forms.Label pinyinLabel;
         private System.Windows.Forms.Timer clockTimer;
-        private System.Windows.Forms.Label clockLabel;
         private System.Windows.Forms.ToolStripStatusLabel spaceStatusLabel;
         private System.Windows.Forms.PictureBox awardMedalPictureBox;
         private System.Windows.Forms.Label awardMedalLabel;
@@ -344,6 +342,7 @@
         private System.Windows.Forms.Label awardHerculesLabel;
         private System.Windows.Forms.PictureBox awardHerculesPictureBox;
         private System.Windows.Forms.Button gameButton;
+        private System.Windows.Forms.ToolStripStatusLabel timerStatusLabel;
     }
 }
 

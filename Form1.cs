@@ -213,8 +213,7 @@ namespace Flashcard
         private void clockTimer_Tick(object sender, EventArgs e)
         {
             TimeSpan duration = DateTime.Now - startTime;
-            clockLabel.Text = string.Format("{0}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
-            clockLabel.Refresh();
+            timerStatusLabel.Text = string.Format("{0}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
             UpdateAward();
         }
 
