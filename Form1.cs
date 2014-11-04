@@ -123,10 +123,11 @@ namespace Flashcard
 
         private void UpdateAward()
         {
+            int limit = 100; // how many points are allowed for each trophy icon
             int points = award.GetPoints();
-            int medal = points - points / 10 * 10;
-            int trophy = points / 10 - points / 100 * 10;
-            int hercules = points / 100;
+            int medal = points - points / limit * limit;
+            int trophy = points / limit - points / limit / limit * limit;
+            int hercules = points / limit / limit;
 
             if (points > 0)
             {

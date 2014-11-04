@@ -130,6 +130,7 @@
     <None Include="Resources\medal-icon.png" />
     <None Include="Resources\Frame.png" />
     <None Include="Resources\hercules.png" />
+    <None Include="Resources\Game-Controller.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />

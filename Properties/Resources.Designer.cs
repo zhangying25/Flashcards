@@ -103,6 +103,16 @@ namespace flashcard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Game_Controller {
+            get {
+                object obj = ResourceManager.GetObject("Game-Controller", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hercules {
             get {
                 object obj = ResourceManager.GetObject("hercules", resourceCulture);

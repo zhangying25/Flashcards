@@ -9,6 +9,7 @@ namespace Flashcard
     enum Strategy
     {
         MOST_FAILURE_FIRST,
-        SEQUENCIAL
+        SEQUENCIAL,
+        RANDOM
     }
 }

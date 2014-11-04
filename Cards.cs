@@ -100,6 +100,9 @@ namespace Flashcard
 
             switch (strategy)
             {
+                case Strategy.RANDOM:
+                    studyPlan = CreateRandomStudyPlan(categories);
+                    break;
                 case Strategy.SEQUENCIAL:
                     studyPlan = CreateSequentialStudyPlan(categories);
                     break;
@@ -127,6 +130,14 @@ namespace Flashcard
             }
 
             return plan;
+        }
+
+        private List<KeyValuePair<char, Record>> CreateRandomStudyPlan(string[] categories)
+        {
+            List<KeyValuePair<char, Record>> plan = CreateSequentialStudyPlan(categories);
+            List<KeyValuePair<char, Record>> randomPlan = plan.OrderBy(o => Guid.NewGuid()).ToList();
+
+            return randomPlan;
         }
 
         private List<KeyValuePair<char, Record>> CreateTopFailureFirstPlan(string[] categories)

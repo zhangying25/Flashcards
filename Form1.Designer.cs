@@ -44,6 +44,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.awardTrophyLabel = new System.Windows.Forms.Label();
             this.awardHerculesLabel = new System.Windows.Forms.Label();
+            this.gameButton = new System.Windows.Forms.Button();
             this.awardHerculesPictureBox = new System.Windows.Forms.PictureBox();
             this.awardTrophyPictureBox = new System.Windows.Forms.PictureBox();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
@@ -200,6 +201,17 @@
             this.awardHerculesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.awardHerculesLabel.Visible = false;
             // 
+            // gameButton
+            // 
+            this.gameButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gameButton.BackgroundImage = global::flashcard.Properties.Resources.Game_Controller;
+            this.gameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gameButton.Location = new System.Drawing.Point(561, 427);
+            this.gameButton.Name = "gameButton";
+            this.gameButton.Size = new System.Drawing.Size(95, 92);
+            this.gameButton.TabIndex = 21;
+            this.gameButton.UseVisualStyleBackColor = true;
+            // 
             // awardHerculesPictureBox
             // 
             this.awardHerculesPictureBox.Image = global::flashcard.Properties.Resources.hercules;
@@ -242,6 +254,7 @@
             this.tellmeButton.Name = "tellmeButton";
             this.tellmeButton.Size = new System.Drawing.Size(95, 92);
             this.tellmeButton.TabIndex = 7;
+            this.tellmeButton.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.tellmeButton.UseVisualStyleBackColor = true;
             this.tellmeButton.Click += new System.EventHandler(this.tellmeButton_Click);
             // 
@@ -273,15 +286,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
             this.Controls.Add(this.awardHerculesLabel);
-            this.Controls.Add(this.awardHerculesPictureBox);
             this.Controls.Add(this.awardTrophyLabel);
+            this.Controls.Add(this.awardMedalLabel);
+            this.Controls.Add(this.gameButton);
+            this.Controls.Add(this.awardHerculesPictureBox);
             this.Controls.Add(this.awardTrophyPictureBox);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.noneCategoryButton);
             this.Controls.Add(this.allCategoryButton);
             this.Controls.Add(this.categoryCheckedListBox);
             this.Controls.Add(this.strategyComboBox);
-            this.Controls.Add(this.awardMedalLabel);
             this.Controls.Add(this.awardMedalPictureBox);
             this.Controls.Add(this.clockLabel);
             this.Controls.Add(this.pinyinLabel);
@@ -329,6 +343,7 @@
         private System.Windows.Forms.PictureBox awardTrophyPictureBox;
         private System.Windows.Forms.Label awardHerculesLabel;
         private System.Windows.Forms.PictureBox awardHerculesPictureBox;
+        private System.Windows.Forms.Button gameButton;
     }
 }
 
