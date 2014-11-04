@@ -8,32 +8,43 @@ namespace Flashcard
 {
     class Point
     {
-        private int points = 0;
+        private int historyPoints = 0;
+        private int gamePoints = 0;
         private int learntCharacterCount = 0;
 
         internal Point(int initialCount)
         {
-            points = initialCount;
+            historyPoints = initialCount;
         }
 
-        internal int LearnOneMore()
+        internal void EarnOneGamePoint()
         {
-            return ++learntCharacterCount;
+            ++gamePoints;
         }
 
-        internal int getLearntCharacterCount()
+        internal void LearnOneMore()
+        {
+            ++learntCharacterCount;
+        }
+
+        internal int GetLearntCharacterCount()
         {
             return learntCharacterCount;
         }
 
+        internal int GetGamePoints()
+        {
+            return gamePoints;
+        }
+
         internal bool DidntLearnAny()
         {
-            return learntCharacterCount == 0;
+            return learntCharacterCount == 0 && gamePoints == 0;
         }
 
         internal int GetPoints()
         {
-            return points + learntCharacterCount / 20;
+            return historyPoints + gamePoints + learntCharacterCount / 10;
         }
     }
 }

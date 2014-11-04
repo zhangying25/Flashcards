@@ -110,7 +110,7 @@ namespace Flashcard
                     studyPlan = CreateTopFailureFirstPlan(categories);
                     break;
                 default:
-                    throw new ArgumentException("Unknown strategy " + strategy);
+                    throw new ArgumentException("Unknown strategy: " + strategy);
             }
         }
 

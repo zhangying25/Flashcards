@@ -24,7 +24,7 @@ namespace Flashcard
                 return;
             }
 
-            string history = string.Format("{0:D4} {1:D6} {2} {3}", award.getLearntCharacterCount(), award.GetPoints(), 
+            string history = string.Format("{0:D4} {1:D6} {2} {3}", award.GetLearntCharacterCount(), award.GetPoints(), 
                 startTime.ToString("s"), DateTime.Now.ToString("s"));
 
             File.AppendAllLines(HISTORY_FILENAME, new string[] { history }, Encoding.UTF8);

@@ -47,10 +47,11 @@
             this.awardHerculesPictureBox = new System.Windows.Forms.PictureBox();
             this.awardTrophyPictureBox = new System.Windows.Forms.PictureBox();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
-            this.tellmeButton = new System.Windows.Forms.Button();
+            this.tellMeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.characterLabel = new System.Windows.Forms.Label();
             this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.gameTimerLabel = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardTrophyPictureBox)).BeginInit();
@@ -90,7 +91,7 @@
             // spaceStatusLabel
             // 
             this.spaceStatusLabel.Name = "spaceStatusLabel";
-            this.spaceStatusLabel.Size = new System.Drawing.Size(692, 21);
+            this.spaceStatusLabel.Size = new System.Drawing.Size(670, 21);
             this.spaceStatusLabel.Spring = true;
             // 
             // pinyinLabel
@@ -203,7 +204,7 @@
             this.gameButton.Size = new System.Drawing.Size(95, 92);
             this.gameButton.TabIndex = 21;
             this.gameButton.UseVisualStyleBackColor = true;
-            this.gameButton.Visible = false;
+            this.gameButton.Click += new System.EventHandler(this.gameButton_Click);
             // 
             // awardHerculesPictureBox
             // 
@@ -238,18 +239,18 @@
             this.awardMedalPictureBox.TabStop = false;
             this.awardMedalPictureBox.Visible = false;
             // 
-            // tellmeButton
+            // tellMeButton
             // 
-            this.tellmeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tellmeButton.BackgroundImage = global::flashcard.Properties.Resources.dont_know;
-            this.tellmeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tellmeButton.Location = new System.Drawing.Point(575, 425);
-            this.tellmeButton.Name = "tellmeButton";
-            this.tellmeButton.Size = new System.Drawing.Size(95, 92);
-            this.tellmeButton.TabIndex = 7;
-            this.tellmeButton.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.tellmeButton.UseVisualStyleBackColor = true;
-            this.tellmeButton.Click += new System.EventHandler(this.tellmeButton_Click);
+            this.tellMeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tellMeButton.BackgroundImage = global::flashcard.Properties.Resources.dont_know;
+            this.tellMeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tellMeButton.Location = new System.Drawing.Point(575, 425);
+            this.tellMeButton.Name = "tellMeButton";
+            this.tellMeButton.Size = new System.Drawing.Size(95, 92);
+            this.tellMeButton.TabIndex = 7;
+            this.tellMeButton.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.tellMeButton.UseVisualStyleBackColor = true;
+            this.tellMeButton.Click += new System.EventHandler(this.tellmeButton_Click);
             // 
             // resultPictureBox
             // 
@@ -280,11 +281,23 @@
             this.timerStatusLabel.Size = new System.Drawing.Size(61, 21);
             this.timerStatusLabel.Text = "0:00:00";
             // 
+            // gameTimerLabel
+            // 
+            this.gameTimerLabel.AutoSize = true;
+            this.gameTimerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameTimerLabel.Location = new System.Drawing.Point(704, 382);
+            this.gameTimerLabel.Name = "gameTimerLabel";
+            this.gameTimerLabel.Size = new System.Drawing.Size(66, 25);
+            this.gameTimerLabel.TabIndex = 22;
+            this.gameTimerLabel.Text = "01:00";
+            this.gameTimerLabel.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
+            this.Controls.Add(this.gameTimerLabel);
             this.Controls.Add(this.awardHerculesLabel);
             this.Controls.Add(this.awardTrophyLabel);
             this.Controls.Add(this.awardMedalLabel);
@@ -298,7 +311,7 @@
             this.Controls.Add(this.strategyComboBox);
             this.Controls.Add(this.awardMedalPictureBox);
             this.Controls.Add(this.pinyinLabel);
-            this.Controls.Add(this.tellmeButton);
+            this.Controls.Add(this.tellMeButton);
             this.Controls.Add(this.resultPictureBox);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.pinyinTextBox);
@@ -326,7 +339,7 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
         private System.Windows.Forms.PictureBox resultPictureBox;
-        private System.Windows.Forms.Button tellmeButton;
+        private System.Windows.Forms.Button tellMeButton;
         private System.Windows.Forms.Label pinyinLabel;
         private System.Windows.Forms.Timer clockTimer;
         private System.Windows.Forms.ToolStripStatusLabel spaceStatusLabel;
@@ -343,6 +356,7 @@
         private System.Windows.Forms.PictureBox awardHerculesPictureBox;
         private System.Windows.Forms.Button gameButton;
         private System.Windows.Forms.ToolStripStatusLabel timerStatusLabel;
+        private System.Windows.Forms.Label gameTimerLabel;
     }
 }
 
