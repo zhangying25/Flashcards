@@ -149,13 +149,13 @@ namespace Flashcard
                 awardMedalLabel.Visible = true;
                 awardMedalPictureBox.Visible = true;
             }
-            if (points >= 10)
+            if (points >= limit)
             {
                 awardTrophyLabel.Text = trophy.ToString();
                 awardTrophyLabel.Visible = true;
                 awardTrophyPictureBox.Visible = true;
             }
-            if (points >= 100)
+            if (points >= limit * limit)
             {
                 awardHerculesLabel.Text = hercules.ToString();
                 awardHerculesLabel.Visible = true;
