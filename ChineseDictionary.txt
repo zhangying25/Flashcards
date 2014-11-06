@@ -1,4 +1,4 @@
-锕 a1
+﻿锕 a1
 副 fu4
 稇 kun3
 穹 qiong2
@@ -1368,17 +1368,6 @@
 苈 li4
 蕤 rui2
 鴨 ya1
-
-Chinese 
-Character 
-Chinese 
-Character 
-Chinese
-
-
-
-
- 
 绷 beng1/beng3
 酤 gu1
 猁 li4
@@ -2899,17 +2888,6 @@ Chinese
 缕 lu:3/lv3
 識 shi2
 貽 yi2
-
-Chinese 
-Character 
-Chinese 
-Character 
-Chinese
-
-
-
-
- 
 采 cai3/cai4
 禾 he2
 铝 lu:3/lv3
@@ -5365,17 +5343,6 @@ Chinese
 磨 mo2/mo4
 縚 tao1
 鼋 yuan2
-
-Chinese 
-Character 
-Chinese 
-Character 
-Chinese
-
-
-
-
- 
 茐 cong1
 記 ji4
 麿 mo3
@@ -8071,17 +8038,6 @@ Chinese
 醱 po1
 肟 wo4
 鴙 zhi4
-
-Chinese 
-Character 
-Chinese 
-Character 
-Chinese
-
-
-
-
- 
 囤 dun4/tun2
 苣 ju4
 婆 po2
