@@ -9,6 +9,7 @@ namespace Flashcard
     class Point
     {
         private int historyPoints = 0;
+        private int totalGamePoints = 0;
         private int gamePoints = 0;
         private int learntCharacterCount = 0;
 
@@ -20,6 +21,12 @@ namespace Flashcard
         internal void EarnOneGamePoint()
         {
             ++gamePoints;
+        }
+
+        internal void FinishGame()
+        {
+            totalGamePoints += gamePoints;
+            gamePoints = 0;
         }
 
         internal void LearnOneMore()
@@ -39,12 +46,12 @@ namespace Flashcard
 
         internal bool DidntLearnAny()
         {
-            return learntCharacterCount == 0 && gamePoints == 0;
+            return learntCharacterCount == 0 && totalGamePoints == 0;
         }
 
         internal int GetPoints()
         {
-            return historyPoints + gamePoints + learntCharacterCount / 10;
+            return historyPoints + totalGamePoints + learntCharacterCount / 10;
         }
     }
 }

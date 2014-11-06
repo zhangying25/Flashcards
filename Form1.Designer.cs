@@ -33,6 +33,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.spaceStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.awardMedalLabel = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.tellMeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
             this.characterLabel = new System.Windows.Forms.Label();
-            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.gameTimerLabel = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
@@ -93,6 +93,13 @@
             this.spaceStatusLabel.Name = "spaceStatusLabel";
             this.spaceStatusLabel.Size = new System.Drawing.Size(670, 21);
             this.spaceStatusLabel.Spring = true;
+            // 
+            // timerStatusLabel
+            // 
+            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerStatusLabel.Name = "timerStatusLabel";
+            this.timerStatusLabel.Size = new System.Drawing.Size(61, 21);
+            this.timerStatusLabel.Text = "0:00:00";
             // 
             // pinyinLabel
             // 
@@ -274,13 +281,6 @@
             this.characterLabel.Text = "字";
             this.characterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timerStatusLabel
-            // 
-            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerStatusLabel.Name = "timerStatusLabel";
-            this.timerStatusLabel.Size = new System.Drawing.Size(61, 21);
-            this.timerStatusLabel.Text = "0:00:00";
-            // 
             // gameTimerLabel
             // 
             this.gameTimerLabel.AutoSize = true;
@@ -317,7 +317,9 @@
             this.Controls.Add(this.pinyinTextBox);
             this.Controls.Add(this.characterLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Flash Card";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

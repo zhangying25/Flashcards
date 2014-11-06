@@ -226,6 +226,7 @@ namespace Flashcard
             if (gameTimer == 0)
             {
                 MessageBox.Show(string.Format("You just earn {0} points", award.GetGamePoints()), "Good Game!", MessageBoxButtons.OK);
+                award.FinishGame();
                 SetMode(Mode.LEARNING);
             }
             else
@@ -331,7 +332,7 @@ namespace Flashcard
 
         private void gameButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Try to answer as much as you can and have FUN.", "Let's PLAY!", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show("Try to answer as much as you can in 1 minute.", "Let's PLAY!", MessageBoxButtons.OKCancel);
             pinyinTextBox.Focus();
             if (result == DialogResult.Cancel)
             {
