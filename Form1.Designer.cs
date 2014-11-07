@@ -300,12 +300,11 @@
             // 
             // characterLabel
             // 
-            this.characterLabel.AutoSize = true;
             this.characterLabel.Font = new System.Drawing.Font("KaiTi", 255.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.characterLabel.Image = global::flashcard.Properties.Resources.Frame;
-            this.characterLabel.Location = new System.Drawing.Point(178, 66);
+            this.characterLabel.Location = new System.Drawing.Point(240, 66);
             this.characterLabel.Name = "characterLabel";
-            this.characterLabel.Size = new System.Drawing.Size(485, 341);
+            this.characterLabel.Size = new System.Drawing.Size(330, 341);
             this.characterLabel.TabIndex = 2;
             this.characterLabel.Text = "字";
             this.characterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

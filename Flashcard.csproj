@@ -133,7 +133,7 @@
     <None Include="Resources\hercules.png" />
     <None Include="Resources\Game-Controller.png" />
     <None Include="Resources\lego_yoda.png" />
-    <None Include="Resources\lego-jedi.png" />
+    <None Include="Resources\lego_jedi.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />
