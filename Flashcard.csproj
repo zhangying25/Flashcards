@@ -90,6 +90,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Pronouciation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Record.cs" />
     <Compile Include="Records.cs" />
     <Compile Include="Strategy.cs" />
@@ -98,14 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Flashcard_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Flashcard.Cards.datasource" />
     <None Include="Properties\Settings.settings">
@@ -132,6 +132,8 @@
     <None Include="Resources\Frame.png" />
     <None Include="Resources\hercules.png" />
     <None Include="Resources\Game-Controller.png" />
+    <None Include="Resources\lego_yoda.png" />
+    <None Include="Resources\lego-jedi.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />

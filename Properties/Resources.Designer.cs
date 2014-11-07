@@ -85,7 +85,7 @@ namespace flashcard.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap dont_know {
             get {
-                object obj = ResourceManager.GetObject("dont-know", resourceCulture);
+                object obj = ResourceManager.GetObject("dont_know", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace flashcard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Game_Controller {
+        internal static System.Drawing.Bitmap game {
             get {
-                object obj = ResourceManager.GetObject("Game-Controller", resourceCulture);
+                object obj = ResourceManager.GetObject("game", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +123,26 @@ namespace flashcard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lego_jedi {
+            get {
+                object obj = ResourceManager.GetObject("lego_jedi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lego_yoda {
+            get {
+                object obj = ResourceManager.GetObject("lego_yoda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap library {
             get {
                 object obj = ResourceManager.GetObject("library", resourceCulture);
@@ -133,9 +153,9 @@ namespace flashcard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap medal_icon {
+        internal static System.Drawing.Bitmap mdeal {
             get {
-                object obj = ResourceManager.GetObject("medal-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("mdeal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

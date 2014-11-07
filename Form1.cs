@@ -137,11 +137,13 @@ namespace Flashcard
 
         private void UpdateAward()
         {
-            int limit = 100; // how many points are allowed for each trophy icon
             int points = award.GetPoints();
-            int medal = points - points / limit * limit;
-            int trophy = points / limit - points / limit / limit * limit;
-            int hercules = points / limit / limit;
+            String pointString = points.ToString();
+            int medal = int.Parse(pointString[0].ToString());
+            int trophy = pointString.Length > 1 ? int.Parse(pointString[1].ToString()) : 0;
+            int hercules = pointString.Length > 2 ? int.Parse(pointString[2].ToString()) : 0;
+            int jedi = pointString.Length > 3 ? int.Parse(pointString[3].ToString()) : 0;
+            int yoda = pointString.Length > 4 ? int.Parse(pointString[4].ToString()) : 0;
 
             if (points > 0)
             {
@@ -149,17 +151,29 @@ namespace Flashcard
                 awardMedalLabel.Visible = true;
                 awardMedalPictureBox.Visible = true;
             }
-            if (points >= limit)
+            if (points >= 10)
             {
                 awardTrophyLabel.Text = trophy.ToString();
                 awardTrophyLabel.Visible = true;
                 awardTrophyPictureBox.Visible = true;
             }
-            if (points >= limit * limit)
+            if (points >= 100)
             {
                 awardHerculesLabel.Text = hercules.ToString();
                 awardHerculesLabel.Visible = true;
                 awardHerculesPictureBox.Visible = true;
+            }
+            if (points >= 1000)
+            {
+                awardJediLabel.Text = jedi.ToString();
+                awardJediLabel.Visible = true;
+                awardJediPictureBox.Visible = true;
+            }
+            if (points >= 10000)
+            {
+                awardYodaLabel.Text = yoda.ToString();
+                awardYodaLabel.Visible = true;
+                awardYodaPictureBox.Visible = true;
             }
         }
 
