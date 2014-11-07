@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pinyinTextBox = new System.Windows.Forms.TextBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -56,6 +57,7 @@
             this.awardJediPictureBox = new System.Windows.Forms.PictureBox();
             this.awardYodaLabel = new System.Windows.Forms.Label();
             this.awardYodaPictureBox = new System.Windows.Forms.PictureBox();
+            this.wordListBox = new System.Windows.Forms.ListBox();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardTrophyPictureBox)).BeginInit();
@@ -343,11 +345,21 @@
             this.awardYodaPictureBox.TabStop = false;
             this.awardYodaPictureBox.Visible = false;
             // 
+            // wordListBox
+            // 
+            this.wordListBox.FormattingEnabled = true;
+            this.wordListBox.Location = new System.Drawing.Point(577, 70);
+            this.wordListBox.Name = "wordListBox";
+            this.wordListBox.Size = new System.Drawing.Size(93, 238);
+            this.wordListBox.TabIndex = 27;
+            this.wordListBox.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
+            this.Controls.Add(this.wordListBox);
             this.Controls.Add(this.awardYodaLabel);
             this.Controls.Add(this.awardJediLabel);
             this.Controls.Add(this.gameTimerLabel);
@@ -372,6 +384,7 @@
             this.Controls.Add(this.awardJediPictureBox);
             this.Controls.Add(this.awardYodaPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -420,6 +433,7 @@
         private System.Windows.Forms.PictureBox awardJediPictureBox;
         private System.Windows.Forms.Label awardYodaLabel;
         private System.Windows.Forms.PictureBox awardYodaPictureBox;
+        private System.Windows.Forms.ListBox wordListBox;
     }
 }
 
