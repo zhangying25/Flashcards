@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="History.cs" />
     <Compile Include="Mode.cs" />
+    <Compile Include="Phrases.cs" />
     <Compile Include="Pinyin.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
@@ -125,10 +126,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ChineseDictionary.txt" />
+    <None Include="Resources\sand_clock2.png" />
+    <None Include="Resources\sand_clock.png" />
     <None Include="Resources\trophy.png" />
     <None Include="Resources\library.png" />
     <None Include="Resources\books.jpg" />
     <None Include="Resources\Coin.PNG" />
+    <None Include="Resources\Coins.png" />
     <Content Include="Resources\dont-know.png" />
     <None Include="Resources\medal-icon.png" />
     <None Include="Resources\Frame.png" />

@@ -34,30 +34,26 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.spaceStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
-            this.awardMedalLabel = new System.Windows.Forms.Label();
             this.strategyComboBox = new System.Windows.Forms.ComboBox();
             this.categoryCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.allCategoryButton = new System.Windows.Forms.Button();
             this.noneCategoryButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
-            this.awardTrophyLabel = new System.Windows.Forms.Label();
-            this.awardHerculesLabel = new System.Windows.Forms.Label();
             this.gameTimerLabel = new System.Windows.Forms.Label();
-            this.awardJediLabel = new System.Windows.Forms.Label();
+            this.phrasesListBox = new System.Windows.Forms.ListBox();
             this.gameButton = new System.Windows.Forms.Button();
             this.awardHerculesPictureBox = new System.Windows.Forms.PictureBox();
             this.awardTrophyPictureBox = new System.Windows.Forms.PictureBox();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
             this.tellMeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
+            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pointsStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.characterLabel = new System.Windows.Forms.Label();
             this.awardJediPictureBox = new System.Windows.Forms.PictureBox();
-            this.awardYodaLabel = new System.Windows.Forms.Label();
             this.awardYodaPictureBox = new System.Windows.Forms.PictureBox();
-            this.wordListBox = new System.Windows.Forms.ListBox();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardTrophyPictureBox)).BeginInit();
@@ -82,7 +78,8 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel,
             this.spaceStatusLabel,
-            this.timerStatusLabel});
+            this.timerStatusLabel,
+            this.pointsStatusLable});
             this.statusStrip.Location = new System.Drawing.Point(0, 541);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(834, 26);
@@ -99,15 +96,8 @@
             // spaceStatusLabel
             // 
             this.spaceStatusLabel.Name = "spaceStatusLabel";
-            this.spaceStatusLabel.Size = new System.Drawing.Size(670, 21);
+            this.spaceStatusLabel.Size = new System.Drawing.Size(619, 21);
             this.spaceStatusLabel.Spring = true;
-            // 
-            // timerStatusLabel
-            // 
-            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerStatusLabel.Name = "timerStatusLabel";
-            this.timerStatusLabel.Size = new System.Drawing.Size(61, 21);
-            this.timerStatusLabel.Text = "0:00:00";
             // 
             // pinyinLabel
             // 
@@ -125,18 +115,6 @@
             this.clockTimer.Enabled = true;
             this.clockTimer.Interval = 1000;
             this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
-            // 
-            // awardMedalLabel
-            // 
-            this.awardMedalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awardMedalLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.awardMedalLabel.Location = new System.Drawing.Point(764, 18);
-            this.awardMedalLabel.Name = "awardMedalLabel";
-            this.awardMedalLabel.Size = new System.Drawing.Size(20, 23);
-            this.awardMedalLabel.TabIndex = 11;
-            this.awardMedalLabel.Text = "0";
-            this.awardMedalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.awardMedalLabel.Visible = false;
             // 
             // strategyComboBox
             // 
@@ -185,30 +163,6 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // awardTrophyLabel
-            // 
-            this.awardTrophyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awardTrophyLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.awardTrophyLabel.Location = new System.Drawing.Point(712, 18);
-            this.awardTrophyLabel.Name = "awardTrophyLabel";
-            this.awardTrophyLabel.Size = new System.Drawing.Size(20, 23);
-            this.awardTrophyLabel.TabIndex = 18;
-            this.awardTrophyLabel.Text = "0";
-            this.awardTrophyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.awardTrophyLabel.Visible = false;
-            // 
-            // awardHerculesLabel
-            // 
-            this.awardHerculesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awardHerculesLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.awardHerculesLabel.Location = new System.Drawing.Point(664, 18);
-            this.awardHerculesLabel.Name = "awardHerculesLabel";
-            this.awardHerculesLabel.Size = new System.Drawing.Size(20, 23);
-            this.awardHerculesLabel.TabIndex = 20;
-            this.awardHerculesLabel.Text = "0";
-            this.awardHerculesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.awardHerculesLabel.Visible = false;
-            // 
             // gameTimerLabel
             // 
             this.gameTimerLabel.AutoSize = true;
@@ -220,17 +174,14 @@
             this.gameTimerLabel.Text = "01:00";
             this.gameTimerLabel.Visible = false;
             // 
-            // awardJediLabel
+            // phrasesListBox
             // 
-            this.awardJediLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awardJediLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.awardJediLabel.Location = new System.Drawing.Point(612, 18);
-            this.awardJediLabel.Name = "awardJediLabel";
-            this.awardJediLabel.Size = new System.Drawing.Size(20, 23);
-            this.awardJediLabel.TabIndex = 24;
-            this.awardJediLabel.Text = "0";
-            this.awardJediLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.awardJediLabel.Visible = false;
+            this.phrasesListBox.FormattingEnabled = true;
+            this.phrasesListBox.Location = new System.Drawing.Point(577, 70);
+            this.phrasesListBox.Name = "phrasesListBox";
+            this.phrasesListBox.Size = new System.Drawing.Size(93, 238);
+            this.phrasesListBox.TabIndex = 27;
+            this.phrasesListBox.Visible = false;
             // 
             // gameButton
             // 
@@ -247,7 +198,7 @@
             // awardHerculesPictureBox
             // 
             this.awardHerculesPictureBox.Image = global::flashcard.Properties.Resources.hercules;
-            this.awardHerculesPictureBox.Location = new System.Drawing.Point(671, 5);
+            this.awardHerculesPictureBox.Location = new System.Drawing.Point(686, 5);
             this.awardHerculesPictureBox.Name = "awardHerculesPictureBox";
             this.awardHerculesPictureBox.Size = new System.Drawing.Size(56, 50);
             this.awardHerculesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -258,7 +209,7 @@
             // awardTrophyPictureBox
             // 
             this.awardTrophyPictureBox.Image = global::flashcard.Properties.Resources.trophy;
-            this.awardTrophyPictureBox.Location = new System.Drawing.Point(720, 5);
+            this.awardTrophyPictureBox.Location = new System.Drawing.Point(731, 5);
             this.awardTrophyPictureBox.Name = "awardTrophyPictureBox";
             this.awardTrophyPictureBox.Size = new System.Drawing.Size(56, 50);
             this.awardTrophyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -300,6 +251,22 @@
             this.resultPictureBox.TabStop = false;
             this.resultPictureBox.Visible = false;
             // 
+            // timerStatusLabel
+            // 
+            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerStatusLabel.Image = global::flashcard.Properties.Resources.sand_clock2;
+            this.timerStatusLabel.Name = "timerStatusLabel";
+            this.timerStatusLabel.Size = new System.Drawing.Size(77, 21);
+            this.timerStatusLabel.Text = "0:00:00";
+            // 
+            // pointsStatusLable
+            // 
+            this.pointsStatusLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pointsStatusLable.Image = global::flashcard.Properties.Resources.Coins;
+            this.pointsStatusLable.Name = "pointsStatusLable";
+            this.pointsStatusLable.Size = new System.Drawing.Size(35, 21);
+            this.pointsStatusLable.Text = "0";
+            // 
             // characterLabel
             // 
             this.characterLabel.Font = new System.Drawing.Font("KaiTi", 255.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -314,7 +281,7 @@
             // awardJediPictureBox
             // 
             this.awardJediPictureBox.Image = global::flashcard.Properties.Resources.lego_jedi;
-            this.awardJediPictureBox.Location = new System.Drawing.Point(619, 5);
+            this.awardJediPictureBox.Location = new System.Drawing.Point(642, 5);
             this.awardJediPictureBox.Name = "awardJediPictureBox";
             this.awardJediPictureBox.Size = new System.Drawing.Size(56, 50);
             this.awardJediPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -322,22 +289,10 @@
             this.awardJediPictureBox.TabStop = false;
             this.awardJediPictureBox.Visible = false;
             // 
-            // awardYodaLabel
-            // 
-            this.awardYodaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awardYodaLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.awardYodaLabel.Location = new System.Drawing.Point(565, 18);
-            this.awardYodaLabel.Name = "awardYodaLabel";
-            this.awardYodaLabel.Size = new System.Drawing.Size(20, 23);
-            this.awardYodaLabel.TabIndex = 26;
-            this.awardYodaLabel.Text = "0";
-            this.awardYodaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.awardYodaLabel.Visible = false;
-            // 
             // awardYodaPictureBox
             // 
             this.awardYodaPictureBox.Image = global::flashcard.Properties.Resources.lego_yoda;
-            this.awardYodaPictureBox.Location = new System.Drawing.Point(572, 5);
+            this.awardYodaPictureBox.Location = new System.Drawing.Point(597, 5);
             this.awardYodaPictureBox.Name = "awardYodaPictureBox";
             this.awardYodaPictureBox.Size = new System.Drawing.Size(56, 50);
             this.awardYodaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -345,27 +300,14 @@
             this.awardYodaPictureBox.TabStop = false;
             this.awardYodaPictureBox.Visible = false;
             // 
-            // wordListBox
-            // 
-            this.wordListBox.FormattingEnabled = true;
-            this.wordListBox.Location = new System.Drawing.Point(577, 70);
-            this.wordListBox.Name = "wordListBox";
-            this.wordListBox.Size = new System.Drawing.Size(93, 238);
-            this.wordListBox.TabIndex = 27;
-            this.wordListBox.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
-            this.Controls.Add(this.wordListBox);
-            this.Controls.Add(this.awardYodaLabel);
-            this.Controls.Add(this.awardJediLabel);
+            this.Controls.Add(this.awardMedalPictureBox);
+            this.Controls.Add(this.phrasesListBox);
             this.Controls.Add(this.gameTimerLabel);
-            this.Controls.Add(this.awardHerculesLabel);
-            this.Controls.Add(this.awardTrophyLabel);
-            this.Controls.Add(this.awardMedalLabel);
             this.Controls.Add(this.gameButton);
             this.Controls.Add(this.awardHerculesPictureBox);
             this.Controls.Add(this.awardTrophyPictureBox);
@@ -374,7 +316,6 @@
             this.Controls.Add(this.allCategoryButton);
             this.Controls.Add(this.categoryCheckedListBox);
             this.Controls.Add(this.strategyComboBox);
-            this.Controls.Add(this.awardMedalPictureBox);
             this.Controls.Add(this.pinyinLabel);
             this.Controls.Add(this.tellMeButton);
             this.Controls.Add(this.resultPictureBox);
@@ -416,24 +357,20 @@
         private System.Windows.Forms.Timer clockTimer;
         private System.Windows.Forms.ToolStripStatusLabel spaceStatusLabel;
         private System.Windows.Forms.PictureBox awardMedalPictureBox;
-        private System.Windows.Forms.Label awardMedalLabel;
         private System.Windows.Forms.ComboBox strategyComboBox;
         private System.Windows.Forms.CheckedListBox categoryCheckedListBox;
         private System.Windows.Forms.Button allCategoryButton;
         private System.Windows.Forms.Button noneCategoryButton;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Label awardTrophyLabel;
         private System.Windows.Forms.PictureBox awardTrophyPictureBox;
-        private System.Windows.Forms.Label awardHerculesLabel;
         private System.Windows.Forms.PictureBox awardHerculesPictureBox;
         private System.Windows.Forms.Button gameButton;
         private System.Windows.Forms.ToolStripStatusLabel timerStatusLabel;
         private System.Windows.Forms.Label gameTimerLabel;
-        private System.Windows.Forms.Label awardJediLabel;
         private System.Windows.Forms.PictureBox awardJediPictureBox;
-        private System.Windows.Forms.Label awardYodaLabel;
         private System.Windows.Forms.PictureBox awardYodaPictureBox;
-        private System.Windows.Forms.ListBox wordListBox;
+        private System.Windows.Forms.ListBox phrasesListBox;
+        private System.Windows.Forms.ToolStripStatusLabel pointsStatusLable;
     }
 }
 

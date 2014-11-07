@@ -16,6 +16,7 @@ namespace Flashcard
     public partial class MainForm : Form
     {
         private ChineseDictionary dictionary;
+        private Phrases phrases;
         private Cards cards;
         private Records records;
         private Point award;
@@ -28,6 +29,7 @@ namespace Flashcard
         {
             InitializeComponent();
             LoadDictionary();
+            LoadPhrases();
             LoadRecords();
             LoadFlashCards();
             InitializeAward();
@@ -35,6 +37,14 @@ namespace Flashcard
         }
 
         #region initialization
+
+        private void LoadPhrases()
+        {
+            phrases = new Phrases();
+            phrases.Load();
+
+            UpdateStatusBar(string.Format("Loaded phrases: {0:D}", phrases.GetCount()));
+        }
 
         private void LoadDictionary()
         {
@@ -138,43 +148,12 @@ namespace Flashcard
         private void UpdateAward()
         {
             int points = award.GetPoints();
-            String pointString = points.ToString();
-            int medal = int.Parse(pointString[0].ToString());
-            int trophy = pointString.Length > 1 ? int.Parse(pointString[1].ToString()) : 0;
-            int hercules = pointString.Length > 2 ? int.Parse(pointString[2].ToString()) : 0;
-            int jedi = pointString.Length > 3 ? int.Parse(pointString[3].ToString()) : 0;
-            int yoda = pointString.Length > 4 ? int.Parse(pointString[4].ToString()) : 0;
-
-            if (points > 0)
-            {
-                awardMedalLabel.Text = medal.ToString();
-                awardMedalLabel.Visible = true;
-                awardMedalPictureBox.Visible = true;
-            }
-            if (points >= 10)
-            {
-                awardTrophyLabel.Text = trophy.ToString();
-                awardTrophyLabel.Visible = true;
-                awardTrophyPictureBox.Visible = true;
-            }
-            if (points >= 100)
-            {
-                awardHerculesLabel.Text = hercules.ToString();
-                awardHerculesLabel.Visible = true;
-                awardHerculesPictureBox.Visible = true;
-            }
-            if (points >= 1000)
-            {
-                awardJediLabel.Text = jedi.ToString();
-                awardJediLabel.Visible = true;
-                awardJediPictureBox.Visible = true;
-            }
-            if (points >= 10000)
-            {
-                awardYodaLabel.Text = yoda.ToString();
-                awardYodaLabel.Visible = true;
-                awardYodaPictureBox.Visible = true;
-            }
+            pointsStatusLable.Text = points.ToString();
+            awardMedalPictureBox.Visible = points > 0;
+            awardTrophyPictureBox.Visible = points > 10;
+            awardHerculesPictureBox.Visible = points > 100;
+            awardJediPictureBox.Visible = points > 200;
+            awardYodaPictureBox.Visible = points > 300;
         }
 
         private char GetCurrentCharacter()
@@ -184,6 +163,12 @@ namespace Flashcard
             return characterLabel.Text[0];
         }
 
+        private void ShowPhrases(List<String> phrases)
+        {
+            phrasesListBox.DataSource = phrases;
+            phrasesListBox.Refresh();
+        }
+
         private void CheckResultAndMoveToNext()
         {
             ShowPinyinHint();
@@ -191,6 +176,7 @@ namespace Flashcard
             records.Update(GetCurrentCharacter(), correct);
             ShowResult(correct);
             dictionary.Pronounce(GetCurrentCharacter());
+            ShowPhrases(phrases.GetPhrasesContainsCharacter(GetCurrentCharacter()));
 
             switch (mode)
             {
