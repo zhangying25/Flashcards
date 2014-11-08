@@ -124,6 +124,7 @@ namespace Flashcard
         {
             ClearResult();
             HidePinyinHint();
+            HidePhrase();
             characterLabel.Text = cards.GetCard();
             pinyinTextBox.Focus();
         }
@@ -138,6 +139,11 @@ namespace Flashcard
             pinyinLabel.Text = dictionary.GetPinyinHint(GetCurrentCharacter());
             pinyinLabel.Visible = true;
             pinyinLabel.Refresh();
+        }
+
+        private void HidePhrase()
+        {
+            phrasesListBox.Visible = false;
         }
 
         private void HidePinyinHint()
@@ -166,7 +172,7 @@ namespace Flashcard
         private void ShowPhrases(List<String> phrases)
         {
             phrasesListBox.DataSource = phrases;
-            phrasesListBox.Refresh();
+            phrasesListBox.Visible = true;
         }
 
         private void CheckResultAndMoveToNext()
@@ -176,7 +182,6 @@ namespace Flashcard
             records.Update(GetCurrentCharacter(), correct);
             ShowResult(correct);
             dictionary.Pronounce(GetCurrentCharacter());
-            ShowPhrases(phrases.GetPhrasesContainsCharacter(GetCurrentCharacter()));
 
             switch (mode)
             {
@@ -190,6 +195,7 @@ namespace Flashcard
                     }
                     else
                     {
+                        ShowPhrases(phrases.GetPhrasesContainsCharacter(GetCurrentCharacter()));
                         ClearResult();
                     }
                     break;

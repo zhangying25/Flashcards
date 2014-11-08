@@ -37,17 +37,17 @@ namespace Flashcard
 
         internal List<String> GetPhrasesContainsCharacter(char character)
         {
-            List<String> phraseSet = new List<string>();
+            List<String> phrases = new List<string>();
 
             foreach (String phrase in values)
             {
                 if (phrase.Contains(character))
                 {
-                    phraseSet.Add(phrase);
+                    phrases.Add(phrase);
                 }
             }
 
-            return phraseSet;
+            return phrases;
         }
 
         internal int GetCount()
