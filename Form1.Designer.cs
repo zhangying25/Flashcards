@@ -193,13 +193,13 @@
             // phrasesListBox
             // 
             this.phrasesListBox.ColumnWidth = 70;
-            this.phrasesListBox.Font = new System.Drawing.Font("NSimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phrasesListBox.Font = new System.Drawing.Font("NSimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.phrasesListBox.FormattingEnabled = true;
-            this.phrasesListBox.ItemHeight = 16;
+            this.phrasesListBox.ItemHeight = 21;
             this.phrasesListBox.Location = new System.Drawing.Point(577, 70);
             this.phrasesListBox.MultiColumn = true;
             this.phrasesListBox.Name = "phrasesListBox";
-            this.phrasesListBox.Size = new System.Drawing.Size(208, 228);
+            this.phrasesListBox.Size = new System.Drawing.Size(208, 214);
             this.phrasesListBox.TabIndex = 27;
             this.phrasesListBox.Visible = false;
             // 

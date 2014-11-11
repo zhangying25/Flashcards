@@ -65,8 +65,6 @@ namespace Flashcard
             categoryCheckedListBox.Items.AddRange(cards.GetCategoryList().ToArray());
             categoryCheckedListBox.SetItemChecked(0, true);
             CreateStudyPlan();
-
-            UpdateStatusBar(string.Format("Loaded {0} cards", cards.GetTotalCardCount()));
         }
 
         private void LoadRecords()
@@ -87,7 +85,7 @@ namespace Flashcard
         private void CreateStudyPlan()
         {
             cards.CreateStudyPlan(GetCurrentStrategy(), GetCurrentCategory());
-            UpdateStatusBar(string.Format("Created study plan: {0}", cards.GetStudyPlanCardCount()));
+            UpdateStatusBar(string.Format("Created study plan: {0} characters", cards.GetStudyPlanCardCount()));
         }
 
         private void ShowResult(bool right)
