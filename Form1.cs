@@ -158,6 +158,9 @@ namespace Flashcard
             awardHerculesPictureBox.Visible = points > 100;
             awardJediPictureBox.Visible = points > 200;
             awardYodaPictureBox.Visible = points > 300;
+            awardBatmanPictureBox.Visible = points > 400;
+            awardHaloPictureBox.Visible = points > 500;
+            awardKillerPictureBox.Visible = points > 600;
         }
 
         private char GetCurrentCharacter()

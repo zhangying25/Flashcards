@@ -146,6 +146,12 @@
     <None Include="Resources\lego_yoda.png" />
     <None Include="Resources\lego_jedi.png" />
     <None Include="Resources\FlashCard.ico" />
+    <None Include="Resources\lego_batman.png" />
+    <None Include="Resources\lego_R2.png" />
+    <None Include="Resources\lego_the_lord_of_the_rings.png" />
+    <None Include="Resources\lego-Indiana-Jones.png" />
+    <None Include="Resources\lego_killer.png" />
+    <None Include="Resources\lego_halo.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />
