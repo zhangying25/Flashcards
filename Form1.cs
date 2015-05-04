@@ -232,8 +232,10 @@ namespace Flashcard
         {
             int correct = cards.GetCorrectCardCountInPlan();
             int total = cards.GetStudyPlanCardCount();
+            string mistakes = cards.GetWrongCharacters();
             MessageBox.Show(
-                string.Format("{0}. {1} of {2} ({3}%) words are correct.", reason, correct, total, correct * 100 / total),
+                string.Format("{0}. {1} of {2} ({3}%) words are correct. The following characters are not correct: \n\n{4}", 
+                reason, correct, total, correct * 100 / total, mistakes),
                 "Good Try!", MessageBoxButtons.OK);
             SetMode(Mode.LEARNING, -1, 0);
         }

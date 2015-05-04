@@ -66,6 +66,20 @@ namespace Flashcard
             return currentCard;
         }
 
+        internal string GetWrongCharacters()
+        {
+            string mistakes = "";
+            foreach (Card card in studyPlan)
+            {
+                if (!card.IsCorrect())
+                {
+                    mistakes += card.GetCharacter();
+                }
+            }
+
+            return mistakes;
+        }
+
         internal int GetCorrectCardCountInPlan()
         {
             int count = 0;

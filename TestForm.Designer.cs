@@ -33,7 +33,7 @@
             this.durationLabel = new System.Windows.Forms.Label();
             this.durationUpDown = new System.Windows.Forms.NumericUpDown();
             this.okButton = new System.Windows.Forms.Button();
-            this.Cancel = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.countUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.durationUpDown)).BeginInit();
             this.SuspendLayout();
@@ -105,22 +105,24 @@
             this.okButton.Text = "Start";
             this.okButton.UseVisualStyleBackColor = true;
             // 
-            // Cancel
+            // cancelButton
             // 
-            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(160, 94);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(75, 23);
-            this.Cancel.TabIndex = 2;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = true;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(160, 94);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // TestForm
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(272, 138);
-            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.durationUpDown);
             this.Controls.Add(this.durationLabel);
@@ -144,6 +146,6 @@
         private System.Windows.Forms.Label durationLabel;
         private System.Windows.Forms.NumericUpDown durationUpDown;
         private System.Windows.Forms.Button okButton;
-        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
