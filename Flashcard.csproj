@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ChineseDictionary.txt" />
+    <None Include="Resources\spongebob.png" />
     <None Include="Resources\Test.jpg" />
     <None Include="Resources\sand_clock2.png" />
     <None Include="Resources\sand_clock.png" />
@@ -149,6 +150,7 @@
     <None Include="Resources\books.jpg" />
     <None Include="Resources\Coin.PNG" />
     <None Include="Resources\Coins.png" />
+    <None Include="Resources\BigHero6.png" />
     <Content Include="Resources\dont-know.png" />
     <None Include="Resources\medal-icon.png" />
     <None Include="Resources\Frame.png" />
@@ -163,6 +165,9 @@
     <None Include="Resources\lego-Indiana-Jones.png" />
     <None Include="Resources\lego_killer.png" />
     <None Include="Resources\lego_halo.png" />
+    <None Include="Resources\Pumpkin.png" />
+    <None Include="Resources\me.png" />
+    <None Include="Resources\frozen.png" />
     <Content Include="Resources\ReleaseNotes.txt" />
     <None Include="Resources\Wrong.png" />
     <None Include="Resources\Right.png" />

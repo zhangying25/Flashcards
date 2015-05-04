@@ -43,6 +43,11 @@
             this.startButton = new System.Windows.Forms.Button();
             this.gameTimerLabel = new System.Windows.Forms.Label();
             this.phrasesListBox = new System.Windows.Forms.ListBox();
+            this.awardFrozonPictureBox = new System.Windows.Forms.PictureBox();
+            this.awardMePictureBox = new System.Windows.Forms.PictureBox();
+            this.awardBigHero6PictureBox = new System.Windows.Forms.PictureBox();
+            this.awardSpongeBobPictureBox = new System.Windows.Forms.PictureBox();
+            this.awardPumpkinPictureBox = new System.Windows.Forms.PictureBox();
             this.testButton = new System.Windows.Forms.Button();
             this.awardBatmanPictureBox = new System.Windows.Forms.PictureBox();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
@@ -59,6 +64,11 @@
             this.awardKillerPictureBox = new System.Windows.Forms.PictureBox();
             this.awardHaloPictureBox = new System.Windows.Forms.PictureBox();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.awardFrozonPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardMePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardBigHero6PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardSpongeBobPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardPumpkinPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardBatmanPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
@@ -127,17 +137,17 @@
             // 
             this.strategyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.strategyComboBox.FormattingEnabled = true;
-            this.strategyComboBox.Location = new System.Drawing.Point(19, 34);
+            this.strategyComboBox.Location = new System.Drawing.Point(19, 66);
             this.strategyComboBox.Name = "strategyComboBox";
-            this.strategyComboBox.Size = new System.Drawing.Size(146, 21);
+            this.strategyComboBox.Size = new System.Drawing.Size(188, 21);
             this.strategyComboBox.TabIndex = 12;
             // 
             // categoryCheckedListBox
             // 
             this.categoryCheckedListBox.FormattingEnabled = true;
-            this.categoryCheckedListBox.Location = new System.Drawing.Point(19, 70);
+            this.categoryCheckedListBox.Location = new System.Drawing.Point(19, 100);
             this.categoryCheckedListBox.Name = "categoryCheckedListBox";
-            this.categoryCheckedListBox.Size = new System.Drawing.Size(146, 334);
+            this.categoryCheckedListBox.Size = new System.Drawing.Size(188, 304);
             this.categoryCheckedListBox.TabIndex = 13;
             // 
             // allCategoryButton
@@ -152,7 +162,7 @@
             // 
             // noneCategoryButton
             // 
-            this.noneCategoryButton.Location = new System.Drawing.Point(100, 410);
+            this.noneCategoryButton.Location = new System.Drawing.Point(142, 410);
             this.noneCategoryButton.Name = "noneCategoryButton";
             this.noneCategoryButton.Size = new System.Drawing.Size(65, 23);
             this.noneCategoryButton.TabIndex = 15;
@@ -164,7 +174,7 @@
             // 
             this.startButton.Location = new System.Drawing.Point(19, 440);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(146, 23);
+            this.startButton.Size = new System.Drawing.Size(188, 23);
             this.startButton.TabIndex = 16;
             this.startButton.Text = "Restart";
             this.startButton.UseVisualStyleBackColor = true;
@@ -193,6 +203,61 @@
             this.phrasesListBox.Size = new System.Drawing.Size(208, 214);
             this.phrasesListBox.TabIndex = 27;
             this.phrasesListBox.Visible = false;
+            // 
+            // awardFrozonPictureBox
+            // 
+            this.awardFrozonPictureBox.Image = global::Flashcard.Properties.Resources.frozen;
+            this.awardFrozonPictureBox.Location = new System.Drawing.Point(213, 5);
+            this.awardFrozonPictureBox.Name = "awardFrozonPictureBox";
+            this.awardFrozonPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardFrozonPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.awardFrozonPictureBox.TabIndex = 36;
+            this.awardFrozonPictureBox.TabStop = false;
+            this.awardFrozonPictureBox.Visible = false;
+            // 
+            // awardMePictureBox
+            // 
+            this.awardMePictureBox.Image = global::Flashcard.Properties.Resources.me;
+            this.awardMePictureBox.Location = new System.Drawing.Point(252, 5);
+            this.awardMePictureBox.Name = "awardMePictureBox";
+            this.awardMePictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardMePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.awardMePictureBox.TabIndex = 35;
+            this.awardMePictureBox.TabStop = false;
+            this.awardMePictureBox.Visible = false;
+            // 
+            // awardBigHero6PictureBox
+            // 
+            this.awardBigHero6PictureBox.Image = global::Flashcard.Properties.Resources.BigHero6;
+            this.awardBigHero6PictureBox.Location = new System.Drawing.Point(301, 5);
+            this.awardBigHero6PictureBox.Name = "awardBigHero6PictureBox";
+            this.awardBigHero6PictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardBigHero6PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.awardBigHero6PictureBox.TabIndex = 34;
+            this.awardBigHero6PictureBox.TabStop = false;
+            this.awardBigHero6PictureBox.Visible = false;
+            // 
+            // awardSpongeBobPictureBox
+            // 
+            this.awardSpongeBobPictureBox.Image = global::Flashcard.Properties.Resources.spongebob;
+            this.awardSpongeBobPictureBox.Location = new System.Drawing.Point(351, 5);
+            this.awardSpongeBobPictureBox.Name = "awardSpongeBobPictureBox";
+            this.awardSpongeBobPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardSpongeBobPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.awardSpongeBobPictureBox.TabIndex = 33;
+            this.awardSpongeBobPictureBox.TabStop = false;
+            this.awardSpongeBobPictureBox.Visible = false;
+            // 
+            // awardPumpkinPictureBox
+            // 
+            this.awardPumpkinPictureBox.Image = global::Flashcard.Properties.Resources.Pumpkin;
+            this.awardPumpkinPictureBox.Location = new System.Drawing.Point(403, 5);
+            this.awardPumpkinPictureBox.Name = "awardPumpkinPictureBox";
+            this.awardPumpkinPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardPumpkinPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.awardPumpkinPictureBox.TabIndex = 32;
+            this.awardPumpkinPictureBox.TabStop = false;
+            this.awardPumpkinPictureBox.Visible = false;
             // 
             // testButton
             // 
@@ -362,6 +427,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
+            this.Controls.Add(this.awardMePictureBox);
+            this.Controls.Add(this.awardBigHero6PictureBox);
+            this.Controls.Add(this.awardSpongeBobPictureBox);
+            this.Controls.Add(this.awardPumpkinPictureBox);
             this.Controls.Add(this.testButton);
             this.Controls.Add(this.awardBatmanPictureBox);
             this.Controls.Add(this.awardMedalPictureBox);
@@ -385,6 +454,7 @@
             this.Controls.Add(this.awardYodaPictureBox);
             this.Controls.Add(this.awardKillerPictureBox);
             this.Controls.Add(this.awardHaloPictureBox);
+            this.Controls.Add(this.awardFrozonPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -395,6 +465,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.awardFrozonPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardMePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardBigHero6PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardSpongeBobPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardPumpkinPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardBatmanPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).EndInit();
@@ -439,6 +514,11 @@
         private System.Windows.Forms.PictureBox awardHaloPictureBox;
         private System.Windows.Forms.PictureBox awardKillerPictureBox;
         private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.PictureBox awardPumpkinPictureBox;
+        private System.Windows.Forms.PictureBox awardSpongeBobPictureBox;
+        private System.Windows.Forms.PictureBox awardBigHero6PictureBox;
+        private System.Windows.Forms.PictureBox awardMePictureBox;
+        private System.Windows.Forms.PictureBox awardFrozonPictureBox;
     }
 }
 

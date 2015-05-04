@@ -161,6 +161,11 @@ namespace Flashcard
             awardBatmanPictureBox.Visible = points > 400;
             awardHaloPictureBox.Visible = points > 500;
             awardKillerPictureBox.Visible = points > 600;
+            awardPumpkinPictureBox.Visible = points > 700;
+            awardSpongeBobPictureBox.Visible = points > 800;
+            awardBigHero6PictureBox.Visible = points > 900;
+            awardMePictureBox.Visible = points > 1000;
+            awardFrozonPictureBox.Visible = points > 1100;
         }
 
         private char GetCurrentCharacter()
