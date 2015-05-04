@@ -22,7 +22,7 @@ namespace Flashcard
         private Point award;
         private Mode mode = Mode.LEARNING;
         private DateTime startTime = DateTime.Now;
-        private int gameTimer;
+        private int timer;
         private static int GAME_DURATION_SECONDS = 60;
 
         public MainForm()
@@ -33,7 +33,7 @@ namespace Flashcard
             LoadRecords();
             LoadFlashCards();
             InitializeAward();
-            DisplayNextCharacter();
+            DisplayCard(cards.GetCurrentCard());
         }
 
         #region initialization
@@ -64,7 +64,7 @@ namespace Flashcard
             strategyComboBox.DataSource = source;
             categoryCheckedListBox.Items.AddRange(cards.GetCategoryList().ToArray());
             categoryCheckedListBox.SetItemChecked(0, true);
-            CreateStudyPlan();
+            CreateStudyPlan(-1);
         }
 
         private void LoadRecords()
@@ -82,15 +82,15 @@ namespace Flashcard
 
         #region private methods
 
-        private void CreateStudyPlan()
+        private void CreateStudyPlan(int count)
         {
-            cards.CreateStudyPlan(GetCurrentStrategy(), GetCurrentCategory());
+            cards.CreateStudyPlan(GetCurrentStrategy(), count, GetCurrentCategory());
             UpdateStatusBar(string.Format("Created study plan: {0} characters", cards.GetStudyPlanCardCount()));
         }
 
         private void ShowResult(bool right)
         {
-            resultPictureBox.Image = right ? flashcard.Properties.Resources.Right : flashcard.Properties.Resources.Wrong;
+            resultPictureBox.Image = right ? Flashcard.Properties.Resources.Right : Flashcard.Properties.Resources.Wrong;
             resultPictureBox.Visible = true;
             resultPictureBox.Refresh();
         }
@@ -118,12 +118,12 @@ namespace Flashcard
             return categoryCheckedListBox.CheckedItems.Cast<string>().ToArray();
         }
 
-        private void DisplayNextCharacter()
+        private void DisplayCard(Card card)
         {
             ClearResult();
             HidePinyinHint();
             HidePhrase();
-            characterLabel.Text = cards.GetCard();
+            characterLabel.Text = card.GetCharacter().ToString();
             pinyinTextBox.Focus();
         }
 
@@ -181,6 +181,7 @@ namespace Flashcard
             ShowPinyinHint();
             bool correct = dictionary.IsCorrect(GetCurrentCharacter(), pinyinTextBox.Text);
             records.Update(GetCurrentCharacter(), correct);
+            cards.GetCurrentCard().UpdateStatus(correct);
             ShowResult(correct);
             dictionary.Pronounce(GetCurrentCharacter());
 
@@ -188,23 +189,30 @@ namespace Flashcard
             {
                 case Mode.LEARNING:
                     System.Threading.Thread.Sleep(1000);
-                    if (correct)
-                    {
-                        DisplayNextCharacter();
+                    if (correct) {
+                        DisplayCard(cards.GetNextCard());
                         award.LearnOneMore();
-                        UpdateStatusBar(string.Format("Studied {0} words", award.GetLearntCharacterCount()));
-                    }
-                    else
-                    {
+                        UpdateStatusBar(string.Format("Studied {0} of {1} cards", cards.GetLearnedCardCount(), 
+                            cards.GetStudyPlanCardCount()));
+                    } else {
                         ShowPhrases(phrases.GetPhrasesContainsCharacter(GetCurrentCharacter()));
                         ClearResult();
                     }
                     break;
+                case Mode.TEST:
+                    if (cards.IsStudyPlanFinished()) {
+                        FinishTest("Well Done");
+                        break;
+                    }
+                    System.Threading.Thread.Sleep(300);
+                    DisplayCard(cards.GetNextCard());
+                    UpdateStatusBar(string.Format("Tested {0} of {1} words", cards.GetLearnedCardCount(), 
+                        cards.GetStudyPlanCardCount()));
+                    break;
                 case Mode.GAME:
                     System.Threading.Thread.Sleep(300);
-                    DisplayNextCharacter();
-                    if (correct)
-                    {
+                    DisplayCard(cards.GetNextCard());
+                    if (correct) {
                         award.EarnOneGamePoint();
                     }
                     break;
@@ -215,41 +223,66 @@ namespace Flashcard
 
         private void SetAllCategoryCheckState(CheckState state)
         {
-            for (int i = 0; i <= (categoryCheckedListBox.Items.Count - 1); i++)
-            {
+            for (int i = 0; i <= (categoryCheckedListBox.Items.Count - 1); i++) {
                 categoryCheckedListBox.SetItemCheckState(i, state);
             }  
         }
 
-        private void UpdateTimer()
+        private void FinishTest(string reason)
+        {
+            int correct = cards.GetCorrectCardCountInPlan();
+            int total = cards.GetStudyPlanCardCount();
+            MessageBox.Show(
+                string.Format("{0}. {1} of {2} ({3}%) words are correct.", reason, correct, total, correct * 100 / total),
+                "Good Try!", MessageBoxButtons.OK);
+            SetMode(Mode.LEARNING, -1, 0);
+        }
+
+        private void FinishGame()
+        {
+            MessageBox.Show(string.Format("You just earn {0} points", award.GetGamePoints()), "Good Game!", MessageBoxButtons.OK);
+            award.FinishGame();
+            SetMode(Mode.LEARNING, -1, 0);
+        }
+
+        private void UpdateClock()
         {
             TimeSpan duration = DateTime.Now - startTime;
             timerStatusLabel.Text = string.Format("{0}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
         }
 
-        private void UpdateGameTimer()
+        private void UpdateTimer()
         {
-            --gameTimer;
-            if (gameTimer == 0)
-            {
-                MessageBox.Show(string.Format("You just earn {0} points", award.GetGamePoints()), "Good Game!", MessageBoxButtons.OK);
-                award.FinishGame();
-                SetMode(Mode.LEARNING);
-            }
-            else
-            {
-                int leftMinutes = gameTimer / 60;
-                int leftSeconds = gameTimer - leftMinutes * 60;
+            --timer;
+
+            if (timer < 0) {
+                return;
+            } else if (timer > 0) {
+                int leftMinutes = timer / 60;
+                int leftSeconds = timer - leftMinutes * 60;
                 gameTimerLabel.Text = string.Format("{0:D2}:{1:D2}", leftMinutes, leftSeconds);
+                return;
+            }
+
+            switch (mode) {
+                case Mode.GAME:
+                    FinishGame();
+                    break;
+                case Mode.TEST:
+                    FinishTest("Time is up");
+                    break;
+                default:
+                    throw new ArgumentException("Unknown mode: " + mode);
             }
         }
 
-        private void SetMode(Mode mode)
+        private void SetMode(Mode mode, int count, int durationMinute)
         {
             this.mode = mode;
+            timer = durationMinute * 60;
+            ClearResult();
 
-            switch (mode)
-            {
+            switch (mode) {
                 case Mode.LEARNING:
                     SetCurrentStrategy(Strategy.MOST_FAILURE_FIRST);
 
@@ -259,11 +292,23 @@ namespace Flashcard
                     noneCategoryButton.Enabled = true;
                     startButton.Enabled = true;
                     tellMeButton.Enabled = true;
+                    gameButton.Enabled = true;
+                    testButton.Enabled = true;
                     gameTimerLabel.Visible = false;
+                    break;
+                case Mode.TEST:
+                    strategyComboBox.Enabled = false;
+                    categoryCheckedListBox.Enabled = false;
+                    allCategoryButton.Enabled = false;
+                    noneCategoryButton.Enabled = false;
+                    startButton.Enabled = false;
+                    tellMeButton.Enabled = false;
+                    gameButton.Enabled = false;
+                    testButton.Enabled = true;
+                    gameTimerLabel.Visible = true;
                     break;
                 case Mode.GAME:
                     SetCurrentStrategy(Strategy.RANDOM);
-                    gameTimer = GAME_DURATION_SECONDS;
 
                     strategyComboBox.Enabled = false;
                     categoryCheckedListBox.Enabled = false;
@@ -271,13 +316,14 @@ namespace Flashcard
                     noneCategoryButton.Enabled = false;
                     startButton.Enabled = false;
                     tellMeButton.Enabled = false;
+                    testButton.Enabled = false;
                     gameTimerLabel.Visible = true;
                     break;
                 default:
                     throw new ArgumentException("Unknown mode: " + mode);
             }
 
-            CreateStudyPlan();
+            CreateStudyPlan(count);
         }
 
         #endregion
@@ -292,8 +338,7 @@ namespace Flashcard
 
         private void pinyinTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter)
-            {
+            if (e.KeyCode != Keys.Enter) {
                 return;
             }
 
@@ -309,13 +354,10 @@ namespace Flashcard
 
         private void clockTimer_Tick(object sender, EventArgs e)
         {
-            UpdateTimer();
-            if (mode == Mode.GAME)
-            {
-                UpdateGameTimer();
-            }
-            else
-            {
+            UpdateClock();
+            if (mode == Mode.GAME || mode == Mode.TEST) {
+                UpdateTimer();
+            } else {
                 UpdateAward();
             }
         }
@@ -333,20 +375,34 @@ namespace Flashcard
         private void startButton_Click(object sender, EventArgs e)
         {
             startTime = DateTime.Now;
-            CreateStudyPlan();
-            DisplayNextCharacter();
+            CreateStudyPlan(-1);
+            DisplayCard(cards.GetCurrentCard());
         }
 
         private void gameButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Try to answer as much as you can in 1 minute.", "Let's PLAY!", MessageBoxButtons.OKCancel);
             pinyinTextBox.Focus();
+            if (result == DialogResult.Cancel) {
+                return;
+            }
+
+            SetMode(Mode.GAME, -1, GAME_DURATION_SECONDS);
+            DisplayCard(cards.GetCurrentCard());
+        }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            TestForm test = new TestForm();
+            DialogResult result = test.ShowDialog();
+            pinyinTextBox.Focus();
             if (result == DialogResult.Cancel)
             {
                 return;
             }
 
-            SetMode(Mode.GAME);
+            SetMode(Mode.TEST, test.GetCharacterCount(), test.GetDurationMinute());
+            DisplayCard(cards.GetCurrentCard());
         }
 
         #endregion

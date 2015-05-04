@@ -60,12 +60,9 @@ namespace Flashcard
 
         internal void UpdateCount(bool correct)
         {
-            if (correct)
-            {
+            if (correct) {
                 ++rightCount;
-            }
-            else
-            {
+            } else {
                 ++wrongCount;
             }
             UpdateRecentStudyTime();

@@ -14,7 +14,7 @@ namespace Flashcard
 
         /**
          * History file format: 
-         *   studied_character_count  points  start_time            end_time points
+         *   studied_character_count  points  start_time            end_time
          *   20                       15      2013-10-30T14:05:28   2014-11-30T17:15:47
          **/
         internal static void Save(Point award, DateTime startTime)

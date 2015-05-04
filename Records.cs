@@ -16,7 +16,7 @@ namespace Flashcard
         /**
          * Records file format: 
          *   word count_of_right count_of_wrong date_of_last_study
-         *     困     15            2              2013-10-30T14:05:28
+         *     困     15            2             2013-10-30T14:05:28
          *     难     12           28             2014-11-30T17:15:47
          **/
         internal void Load()

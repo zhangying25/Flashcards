@@ -43,7 +43,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.gameTimerLabel = new System.Windows.Forms.Label();
             this.phrasesListBox = new System.Windows.Forms.ListBox();
-            this.awardHaloPictureBox = new System.Windows.Forms.PictureBox();
+            this.testButton = new System.Windows.Forms.Button();
             this.awardBatmanPictureBox = new System.Windows.Forms.PictureBox();
             this.awardMedalPictureBox = new System.Windows.Forms.PictureBox();
             this.gameButton = new System.Windows.Forms.Button();
@@ -57,8 +57,8 @@
             this.awardJediPictureBox = new System.Windows.Forms.PictureBox();
             this.awardYodaPictureBox = new System.Windows.Forms.PictureBox();
             this.awardKillerPictureBox = new System.Windows.Forms.PictureBox();
+            this.awardHaloPictureBox = new System.Windows.Forms.PictureBox();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.awardHaloPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardBatmanPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).BeginInit();
@@ -67,12 +67,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.awardJediPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardYodaPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardKillerPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardHaloPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pinyinTextBox
             // 
             this.pinyinTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinyinTextBox.Location = new System.Drawing.Point(347, 482);
+            this.pinyinTextBox.Location = new System.Drawing.Point(269, 482);
             this.pinyinTextBox.Name = "pinyinTextBox";
             this.pinyinTextBox.Size = new System.Drawing.Size(107, 35);
             this.pinyinTextBox.TabIndex = 3;
@@ -109,7 +110,7 @@
             // 
             this.pinyinLabel.AutoSize = true;
             this.pinyinLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pinyinLabel.Location = new System.Drawing.Point(342, 427);
+            this.pinyinLabel.Location = new System.Drawing.Point(264, 427);
             this.pinyinLabel.Name = "pinyinLabel";
             this.pinyinLabel.Size = new System.Drawing.Size(55, 28);
             this.pinyinLabel.TabIndex = 8;
@@ -193,20 +194,22 @@
             this.phrasesListBox.TabIndex = 27;
             this.phrasesListBox.Visible = false;
             // 
-            // awardHaloPictureBox
+            // testButton
             // 
-            this.awardHaloPictureBox.Image = global::flashcard.Properties.Resources.lego_halo;
-            this.awardHaloPictureBox.Location = new System.Drawing.Point(496, 5);
-            this.awardHaloPictureBox.Name = "awardHaloPictureBox";
-            this.awardHaloPictureBox.Size = new System.Drawing.Size(56, 50);
-            this.awardHaloPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.awardHaloPictureBox.TabIndex = 29;
-            this.awardHaloPictureBox.TabStop = false;
-            this.awardHaloPictureBox.Visible = false;
+            this.testButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.testButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testButton.BackgroundImage")));
+            this.testButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.testButton.Location = new System.Drawing.Point(575, 427);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(95, 92);
+            this.testButton.TabIndex = 31;
+            this.testButton.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // awardBatmanPictureBox
             // 
-            this.awardBatmanPictureBox.Image = global::flashcard.Properties.Resources.lego_batman;
+            this.awardBatmanPictureBox.Image = global::Flashcard.Properties.Resources.lego_batman;
             this.awardBatmanPictureBox.Location = new System.Drawing.Point(547, 5);
             this.awardBatmanPictureBox.Name = "awardBatmanPictureBox";
             this.awardBatmanPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -217,7 +220,7 @@
             // 
             // awardMedalPictureBox
             // 
-            this.awardMedalPictureBox.Image = global::flashcard.Properties.Resources.mdeal;
+            this.awardMedalPictureBox.Image = global::Flashcard.Properties.Resources.mdeal;
             this.awardMedalPictureBox.Location = new System.Drawing.Point(778, 5);
             this.awardMedalPictureBox.Name = "awardMedalPictureBox";
             this.awardMedalPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -229,9 +232,9 @@
             // gameButton
             // 
             this.gameButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gameButton.BackgroundImage = global::flashcard.Properties.Resources.game;
+            this.gameButton.BackgroundImage = global::Flashcard.Properties.Resources.game;
             this.gameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gameButton.Location = new System.Drawing.Point(690, 425);
+            this.gameButton.Location = new System.Drawing.Point(692, 427);
             this.gameButton.Name = "gameButton";
             this.gameButton.Size = new System.Drawing.Size(95, 92);
             this.gameButton.TabIndex = 21;
@@ -240,7 +243,7 @@
             // 
             // awardHerculesPictureBox
             // 
-            this.awardHerculesPictureBox.Image = global::flashcard.Properties.Resources.hercules;
+            this.awardHerculesPictureBox.Image = global::Flashcard.Properties.Resources.hercules;
             this.awardHerculesPictureBox.Location = new System.Drawing.Point(686, 5);
             this.awardHerculesPictureBox.Name = "awardHerculesPictureBox";
             this.awardHerculesPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -251,7 +254,7 @@
             // 
             // awardTrophyPictureBox
             // 
-            this.awardTrophyPictureBox.Image = global::flashcard.Properties.Resources.trophy;
+            this.awardTrophyPictureBox.Image = global::Flashcard.Properties.Resources.trophy;
             this.awardTrophyPictureBox.Location = new System.Drawing.Point(731, 5);
             this.awardTrophyPictureBox.Name = "awardTrophyPictureBox";
             this.awardTrophyPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -263,9 +266,9 @@
             // tellMeButton
             // 
             this.tellMeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tellMeButton.BackgroundImage = global::flashcard.Properties.Resources.dont_know;
+            this.tellMeButton.BackgroundImage = global::Flashcard.Properties.Resources.dont_know;
             this.tellMeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tellMeButton.Location = new System.Drawing.Point(575, 425);
+            this.tellMeButton.Location = new System.Drawing.Point(457, 427);
             this.tellMeButton.Name = "tellMeButton";
             this.tellMeButton.Size = new System.Drawing.Size(95, 92);
             this.tellMeButton.TabIndex = 7;
@@ -286,7 +289,7 @@
             // timerStatusLabel
             // 
             this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerStatusLabel.Image = global::flashcard.Properties.Resources.sand_clock2;
+            this.timerStatusLabel.Image = global::Flashcard.Properties.Resources.sand_clock2;
             this.timerStatusLabel.Name = "timerStatusLabel";
             this.timerStatusLabel.Size = new System.Drawing.Size(77, 21);
             this.timerStatusLabel.Text = "0:00:00";
@@ -294,7 +297,7 @@
             // pointsStatusLable
             // 
             this.pointsStatusLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pointsStatusLable.Image = global::flashcard.Properties.Resources.Coins;
+            this.pointsStatusLable.Image = global::Flashcard.Properties.Resources.Coins;
             this.pointsStatusLable.Name = "pointsStatusLable";
             this.pointsStatusLable.Size = new System.Drawing.Size(35, 21);
             this.pointsStatusLable.Text = "0";
@@ -302,7 +305,7 @@
             // characterLabel
             // 
             this.characterLabel.Font = new System.Drawing.Font("KaiTi", 255.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.characterLabel.Image = global::flashcard.Properties.Resources.Frame;
+            this.characterLabel.Image = global::Flashcard.Properties.Resources.Frame;
             this.characterLabel.Location = new System.Drawing.Point(240, 66);
             this.characterLabel.Name = "characterLabel";
             this.characterLabel.Size = new System.Drawing.Size(330, 341);
@@ -312,7 +315,7 @@
             // 
             // awardJediPictureBox
             // 
-            this.awardJediPictureBox.Image = global::flashcard.Properties.Resources.lego_jedi;
+            this.awardJediPictureBox.Image = global::Flashcard.Properties.Resources.lego_jedi;
             this.awardJediPictureBox.Location = new System.Drawing.Point(642, 5);
             this.awardJediPictureBox.Name = "awardJediPictureBox";
             this.awardJediPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -323,7 +326,7 @@
             // 
             // awardYodaPictureBox
             // 
-            this.awardYodaPictureBox.Image = global::flashcard.Properties.Resources.lego_yoda;
+            this.awardYodaPictureBox.Image = global::Flashcard.Properties.Resources.lego_yoda;
             this.awardYodaPictureBox.Location = new System.Drawing.Point(597, 5);
             this.awardYodaPictureBox.Name = "awardYodaPictureBox";
             this.awardYodaPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -334,7 +337,7 @@
             // 
             // awardKillerPictureBox
             // 
-            this.awardKillerPictureBox.Image = global::flashcard.Properties.Resources.lego_killer;
+            this.awardKillerPictureBox.Image = global::Flashcard.Properties.Resources.lego_killer;
             this.awardKillerPictureBox.Location = new System.Drawing.Point(451, 5);
             this.awardKillerPictureBox.Name = "awardKillerPictureBox";
             this.awardKillerPictureBox.Size = new System.Drawing.Size(56, 50);
@@ -343,11 +346,23 @@
             this.awardKillerPictureBox.TabStop = false;
             this.awardKillerPictureBox.Visible = false;
             // 
+            // awardHaloPictureBox
+            // 
+            this.awardHaloPictureBox.Image = global::Flashcard.Properties.Resources.lego_halo;
+            this.awardHaloPictureBox.Location = new System.Drawing.Point(496, 5);
+            this.awardHaloPictureBox.Name = "awardHaloPictureBox";
+            this.awardHaloPictureBox.Size = new System.Drawing.Size(56, 50);
+            this.awardHaloPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.awardHaloPictureBox.TabIndex = 29;
+            this.awardHaloPictureBox.TabStop = false;
+            this.awardHaloPictureBox.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 567);
+            this.Controls.Add(this.testButton);
             this.Controls.Add(this.awardBatmanPictureBox);
             this.Controls.Add(this.awardMedalPictureBox);
             this.Controls.Add(this.phrasesListBox);
@@ -380,7 +395,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.awardHaloPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardBatmanPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardMedalPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardHerculesPictureBox)).EndInit();
@@ -389,6 +403,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.awardJediPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardYodaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.awardKillerPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.awardHaloPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,6 +438,7 @@
         private System.Windows.Forms.PictureBox awardBatmanPictureBox;
         private System.Windows.Forms.PictureBox awardHaloPictureBox;
         private System.Windows.Forms.PictureBox awardKillerPictureBox;
+        private System.Windows.Forms.Button testButton;
     }
 }
 

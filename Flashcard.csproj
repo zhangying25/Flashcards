@@ -7,8 +7,8 @@
     <ProjectGuid>{0E59DA2F-B49B-4D81-8081-DB7E970E1AFB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>flashcard</RootNamespace>
-    <AssemblyName>flashcard</AssemblyName>
+    <RootNamespace>Flashcard</RootNamespace>
+    <AssemblyName>Flashcard</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
     <Compile Include="Cards.cs" />
     <Compile Include="ChineseDictionary.cs" />
     <Compile Include="Form1.cs">
@@ -104,6 +105,12 @@
     <Compile Include="Record.cs" />
     <Compile Include="Records.cs" />
     <Compile Include="Strategy.cs" />
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +120,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Flashcard_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Flashcard.Cards.datasource" />
@@ -131,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ChineseDictionary.txt" />
+    <None Include="Resources\Test.jpg" />
     <None Include="Resources\sand_clock2.png" />
     <None Include="Resources\sand_clock.png" />
     <None Include="Resources\trophy.png" />

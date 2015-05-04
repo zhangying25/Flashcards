@@ -9,6 +9,7 @@ namespace Flashcard
     enum Mode
     {
         LEARNING,
+        TEST,
         GAME
     }
 }

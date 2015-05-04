@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace flashcard.Properties {
+namespace Flashcard.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace flashcard.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("flashcard.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Flashcard.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -256,6 +256,16 @@ namespace flashcard.Properties {
         internal static System.Drawing.Bitmap sand_clock2 {
             get {
                 object obj = ResourceManager.GetObject("sand_clock2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Test {
+            get {
+                object obj = ResourceManager.GetObject("Test", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

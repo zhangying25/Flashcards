@@ -12,8 +12,8 @@ namespace Flashcard
         private Records records;
         private Dictionary<string, string> cards;
         private List<string> categories;
-        private List<KeyValuePair<char, Record>> studyPlan;
-        private int currentCard = -1;
+        private List<Card> studyPlan;
+        private int currentCard = 0;
 
         internal Cards(Records records)
         {
@@ -61,6 +61,24 @@ namespace Flashcard
             return studyPlan.Count;
         }
 
+        internal int GetLearnedCardCount()
+        {
+            return currentCard;
+        }
+
+        internal int GetCorrectCardCountInPlan()
+        {
+            int count = 0;
+
+            foreach (Card card in studyPlan) {
+                if (card.IsCorrect()) {
+                    ++count;
+                }
+            }
+
+            return count;
+        }
+
         internal int GetTotalCardCount()
         {
             int count = 0;
@@ -73,28 +91,40 @@ namespace Flashcard
             return count;
         }
 
-        internal string GetCard()
+        internal Card GetCurrentCard()
         {
-            if (studyPlan.Count == 0)
-            {
-                return null;
+            if (studyPlan.Count == 0) {
+                throw new ArgumentException("Study plan is empty");
+            }
+
+            return studyPlan[currentCard];
+        }
+
+        internal Card GetNextCard()
+        {
+            if (studyPlan.Count == 0) {
+                throw new ArgumentException("Study plan is empty");
             }
 
             ++currentCard;
-            if (currentCard == studyPlan.Count)
-            {
+            if (currentCard == studyPlan.Count) {
                 currentCard = 0;
             }
 
-            return studyPlan[currentCard].Key.ToString();
+            return studyPlan[currentCard];
+        }
+
+        internal bool IsStudyPlanFinished()
+        {
+            return currentCard == studyPlan.Count - 1;
         }
 
         internal void Reset()
         {
-            currentCard = -1;
+            currentCard = 0;
         }
 
-        internal void CreateStudyPlan(Strategy strategy, params string[] categories)
+        internal void CreateStudyPlan(Strategy strategy, int count, params string[] categories)
         {
             Reset();
 
@@ -112,11 +142,16 @@ namespace Flashcard
                 default:
                     throw new ArgumentException("Unknown strategy: " + strategy);
             }
+
+            if (count > 0)
+            {
+                studyPlan = studyPlan.GetRange(0, count);
+            }
         }
 
-        private List<KeyValuePair<char, Record>> CreateSequentialStudyPlan(string[] categories)
+        private List<Card> CreateSequentialStudyPlan(string[] categories)
         {
-            List<KeyValuePair<char, Record>> plan = new List<KeyValuePair<char, Record>>();
+            List<Card> plan = new List<Card>();
 
             foreach (string category in categories)
             {
@@ -125,25 +160,25 @@ namespace Flashcard
                 {
                     char character = cards[category][i];
                     Record record = records.GetRecord(character);
-                    plan.Add(new KeyValuePair<char, Record>(character, record));
+                    plan.Add(new Card(character, record));
                 }
             }
 
             return plan;
         }
 
-        private List<KeyValuePair<char, Record>> CreateRandomStudyPlan(string[] categories)
+        private List<Card> CreateRandomStudyPlan(string[] categories)
         {
-            List<KeyValuePair<char, Record>> plan = CreateSequentialStudyPlan(categories);
-            List<KeyValuePair<char, Record>> randomPlan = plan.OrderBy(o => Guid.NewGuid()).ToList();
+            List<Card> plan = CreateSequentialStudyPlan(categories);
+            List<Card> randomPlan = plan.OrderBy(o => Guid.NewGuid()).ToList();
 
             return randomPlan;
         }
 
-        private List<KeyValuePair<char, Record>> CreateTopFailureFirstPlan(string[] categories)
+        private List<Card> CreateTopFailureFirstPlan(string[] categories)
         {
-            List<KeyValuePair<char, Record>> plan = CreateSequentialStudyPlan(categories);
-            List<KeyValuePair<char, Record>> sortedPlan = plan.OrderByDescending(o => o.Value.GetWrongPercentile()).ToList();
+            List<Card> plan = CreateSequentialStudyPlan(categories);
+            List<Card> sortedPlan = plan.OrderByDescending(o => o.GetRecord().GetWrongPercentile()).ToList();
 
             return sortedPlan;
         }
