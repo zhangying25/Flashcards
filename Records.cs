@@ -36,7 +36,7 @@ namespace Flashcard
                 }
 
                 string[] info = line.Split(' ');
-                Debug.Assert(info.Length == 4, "Should include 5 parts: character, right count, wrong count, and recent study date");
+                Debug.Assert(info.Length == 4, "Should include 4 parts: character, right count, wrong count, and recent study date");
                 Debug.Assert(info[0].Length == 1, "The first column is the Chinese character");
 
                 records.Add(info[0][0], new Record(int.Parse(info[1]), int.Parse(info[2]), DateTime.Parse(info[3])));
@@ -46,8 +46,7 @@ namespace Flashcard
         internal void Save()
         {
             List<string> lines = new List<string>();
-            foreach (char character in records.Keys)
-            {
+            foreach (char character in records.Keys) {
                 Record record = records[character];
                 lines.Add(string.Format("{0} {1}", character, records[character].ToString()));
             }
@@ -56,33 +55,26 @@ namespace Flashcard
 
         internal void Update(char character, bool correct)
         {
-            if (records.ContainsKey(character))
-            {
-                records[character].UpdateCount(correct);
-            }
-            else
-            {
-                records.Add(character, new Record(correct));
+            if (records.ContainsKey(character)) {
+                records[character].Update(correct);
+            } else {
+                records.Add(character, correct ? Record.NewCorrectRecord() : Record.NewWrongRecord());
             }
         }
 
         internal void IncreaseWrongCount(char character, int count)
         {
-            if (records.ContainsKey(character))
-            {
+            if (records.ContainsKey(character)) {
                 records[character].UpdateWrongCount(count);
-            }
-            else
-            {
+            } else {
                 records.Add(character, new Record(0, count));
             }
         }
 
         internal Record GetRecord(char character)
         {
-            if (!records.ContainsKey(character))
-            {
-                return Record.New();
+            if (!records.ContainsKey(character)) {
+                return Record.NewRecord();
             }
 
             return records[character];

@@ -11,32 +11,43 @@ namespace Flashcard
         private char character;
         private Record record;
         private bool? correct;
+        private string input;
 
         internal Card(char character, Record record)
         {
             this.character = character;
             this.record = record;
             this.correct = null;
+            this.input = null;
         }
 
-        internal char GetCharacter()
+        public char Character
         {
-            return character;
+            get { return character; }
         }
 
-        internal Record GetRecord()
+        public Record Record
         {
-            return record;
+            get { return record; }
         }
 
-        internal void UpdateStatus(bool correct)
+        internal bool CheckResult(ChineseDictionary dictionary, string input)
         {
+            this.input = input;
+            bool correct = dictionary.IsCorrect(character, input);
             this.correct = correct;
+            record.Update(correct);
+            return correct;
         }
 
-        internal bool IsCorrect()
+        public bool IsCorrect()
         {
             return correct ?? false;
+        }
+
+        public string Answer
+        {
+            get { return input; }
         }
     }
 }

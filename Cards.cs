@@ -32,15 +32,12 @@ namespace Flashcard
             cards = new Dictionary<string, string>();
             categories = new List<string>();
 
-            foreach (string line in lines)
-            {
-                if (String.IsNullOrWhiteSpace(line))
-                {
+            foreach (string line in lines) {
+                if (String.IsNullOrWhiteSpace(line)) {
                     continue;
                 }
                 string[] cardsInfo = line.Split(new char[] { ' ' }, 2);
-                if (cardsInfo.Length != 2)
-                {
+                if (cardsInfo.Length != 2) {
                     continue;
                 }
                 categories.Add(cardsInfo[0]);
@@ -66,14 +63,14 @@ namespace Flashcard
             return currentCard;
         }
 
-        internal string GetWrongCharacters()
+        internal List<Card> GetMisspelledCards()
         {
-            string mistakes = "";
+            List<Card> mistakes = new List<Card>();
             foreach (Card card in studyPlan)
             {
                 if (!card.IsCorrect())
                 {
-                    mistakes += card.GetCharacter();
+                    mistakes.Add(card);
                 }
             }
 
@@ -97,35 +94,40 @@ namespace Flashcard
         {
             int count = 0;
 
-            foreach (string categoary in categories)
-            {
+            foreach (string categoary in categories) {
                 count += cards[categoary].Length;
             }
 
             return count;
         }
 
-        internal Card GetCurrentCard()
+        internal Card CurrentCard
         {
-            if (studyPlan.Count == 0) {
-                throw new ArgumentException("Study plan is empty");
-            }
+            get
+            {
+                if (studyPlan.Count == 0) {
+                    throw new ArgumentException("Study plan is empty");
+                }
 
-            return studyPlan[currentCard];
+                return studyPlan[currentCard];
+            }
         }
 
-        internal Card GetNextCard()
+        internal Card NextCard
         {
-            if (studyPlan.Count == 0) {
-                throw new ArgumentException("Study plan is empty");
-            }
+            get
+            {
+                if (studyPlan.Count == 0) {
+                    throw new ArgumentException("Study plan is empty");
+                }
 
-            ++currentCard;
-            if (currentCard == studyPlan.Count) {
-                currentCard = 0;
-            }
+                ++currentCard;
+                if (currentCard == studyPlan.Count) {
+                    currentCard = 0;
+                }
 
-            return studyPlan[currentCard];
+                return studyPlan[currentCard];
+            }
         }
 
         internal bool IsStudyPlanFinished()
@@ -170,8 +172,7 @@ namespace Flashcard
             foreach (string category in categories)
             {
                 string lesson = cards[category];
-                for (int i = 0; i < lesson.Length; ++i)
-                {
+                for (int i = 0; i < lesson.Length; ++i) {
                     char character = cards[category][i];
                     Record record = records.GetRecord(character);
                     plan.Add(new Card(character, record));
@@ -192,7 +193,7 @@ namespace Flashcard
         private List<Card> CreateTopFailureFirstPlan(string[] categories)
         {
             List<Card> plan = CreateSequentialStudyPlan(categories);
-            List<Card> sortedPlan = plan.OrderByDescending(o => o.GetRecord().GetWrongPercentile()).ToList();
+            List<Card> sortedPlan = plan.OrderByDescending(o => o.Record.WrongPercentile).ToList();
 
             return sortedPlan;
         }

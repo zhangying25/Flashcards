@@ -29,14 +29,14 @@ namespace Flashcard
             return false;
         }
 
-        internal string GetPinyinString()
+        internal string PinyinString
         {
-            return string.Join(", ", values);
+            get { return string.Join(", ", values); }
         }
 
-        internal List<string> GetPinyinList()
+        internal List<string> PinyinList
         {
-            return values;
+            get { return values; }
         }
     }
 }

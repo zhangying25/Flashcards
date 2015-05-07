@@ -11,11 +11,6 @@ namespace Flashcard
         private int wrongCount;
         private DateTime recentStudy;
 
-        internal static Record New()
-        {
-            return new Record(false);
-        }
-
         internal Record(int rightCount, int wrongCount, DateTime recentStudy)
         {
             this.rightCount = rightCount;
@@ -28,8 +23,19 @@ namespace Flashcard
         {
         }
 
-        internal Record(bool correct) : this(correct ? 1 : 0, correct ? 0 : 1, DateTime.Now)
+        internal static Record NewRecord()
         {
+            return new Record(0, 0, DateTime.Now);
+        }
+
+        internal static Record NewCorrectRecord()
+        {
+            return new Record(1, 0, DateTime.Now);
+        }
+
+        internal static Record NewWrongRecord()
+        {
+            return new Record(0, 1, DateTime.Now);
         }
 
         internal void UpdateRecentStudyTime()
@@ -43,22 +49,22 @@ namespace Flashcard
             UpdateRecentStudyTime();
         }
 
-        internal int GetRightCount()
+        public int RightCount
         {
-            return rightCount;
+            get { return rightCount; }
         }
 
-        internal int GetWrongCount()
+        public int WrongCount
         {
-            return wrongCount;
+            get { return wrongCount; }
         }
 
-        internal int GetWrongPercentile()
+        public int WrongPercentile
         {
-            return wrongCount * 100 / (wrongCount + rightCount);
+            get { return wrongCount * 100 / (wrongCount + rightCount); }
         }
 
-        internal void UpdateCount(bool correct)
+        internal void Update(bool correct)
         {
             if (correct) {
                 ++rightCount;
