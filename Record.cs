@@ -61,7 +61,10 @@ namespace Flashcard
 
         public int WrongPercentile
         {
-            get { return wrongCount * 100 / (wrongCount + rightCount); }
+            get {
+                int total = wrongCount + rightCount;
+                return total == 0 ? 100 : wrongCount * 100 / total; 
+            }
         }
 
         internal void Update(bool correct)
