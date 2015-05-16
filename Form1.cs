@@ -88,6 +88,12 @@ namespace Flashcard
             UpdateStatusBar(string.Format("Created study plan: {0} characters", cards.GetStudyPlanCardCount()));
         }
 
+        private void CreateStudyPlanOnMisspelledCards()
+        {
+            cards.CreateStudyPlanOnMisspelledCards();
+            UpdateStatusBar(string.Format("Created study plan: {0} characters", cards.GetStudyPlanCardCount()));
+        }
+
         private void ShowResult(bool right)
         {
             resultPictureBox.Image = right ? Flashcard.Properties.Resources.Right : Flashcard.Properties.Resources.Wrong;
@@ -196,6 +202,18 @@ namespace Flashcard
             switch (mode)
             {
                 case Mode.LEARNING:
+                    if (cards.IsStudyPlanFinished()) {
+                        if (cards.AllPassed) {
+                            MessageBox.Show("All cards are spelled correctly.", "Great Job!", MessageBoxButtons.OK);
+                            startLearning();
+                        } else {
+                            ShowStudyResult("Well Done");
+                            CreateStudyPlanOnMisspelledCards();
+                            DisplayCard(cards.CurrentCard);
+                        }
+                        break;
+                    }
+
                     System.Threading.Thread.Sleep(1000);
                     if (correct) {
                         DisplayCard(cards.NextCard);
@@ -209,7 +227,12 @@ namespace Flashcard
                     break;
                 case Mode.TEST:
                     if (cards.IsStudyPlanFinished()) {
-                        FinishTest("Well Done");
+                        if (cards.AllPassed) {
+                            MessageBox.Show("All cards are spelled correctly.", "Great Job!", MessageBoxButtons.OK);
+                        } else {
+                            ShowStudyResult("Well Done");
+                        }
+                        startLearning();
                         break;
                     }
                     System.Threading.Thread.Sleep(300);
@@ -247,7 +270,7 @@ namespace Flashcard
             return results;
         }
 
-        private void FinishTest(string reason)
+        private void ShowStudyResult(string reason)
         {
             List<Result> results = GetResults();
             TestResultForm resultForm = new TestResultForm();
@@ -260,15 +283,12 @@ namespace Flashcard
             resultForm.incorrectCardsCountLabel.Text = (total - correct).ToString();
             resultForm.rateNumberLabel.Text = (correct * 100 / total).ToString() + " %";
             resultForm.ShowDialog();
-
-            startLearning();
         }
 
         private void FinishGame()
         {
             MessageBox.Show(string.Format("You just earn {0} points", award.GetGamePoints()), "Good Game!", MessageBoxButtons.OK);
             award.FinishGame();
-            startLearning();
         }
 
         private void UpdateClock()
@@ -295,11 +315,12 @@ namespace Flashcard
                     FinishGame();
                     break;
                 case Mode.TEST:
-                    FinishTest("Time is up");
+                    ShowStudyResult("Time is up");
                     break;
                 default:
                     throw new ArgumentException("Unknown mode: " + mode);
             }
+            startLearning();
         }
 
         private void SetMode(Mode mode, int count, int durationMinute)
@@ -355,7 +376,6 @@ namespace Flashcard
         private void startLearning()
         {
             SetMode(Mode.LEARNING, -1, 0);
-            CreateStudyPlan(-1);
             DisplayCard(cards.CurrentCard);
         }
 

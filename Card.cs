@@ -10,14 +10,18 @@ namespace Flashcard
     {
         private char character;
         private Record record;
-        private bool? correct;
+        // count of correct
+        private int correct;
+        // count of incorrect
+        private int incorrect;
         private string input;
 
         internal Card(char character, Record record)
         {
             this.character = character;
             this.record = record;
-            this.correct = null;
+            this.correct = 0;
+            this.incorrect = 0;
             this.input = null;
         }
 
@@ -31,18 +35,29 @@ namespace Flashcard
             get { return record; }
         }
 
+        internal void Reset()
+        {
+            correct = 0;
+            incorrect = 0;
+        }
+
         internal bool CheckResult(ChineseDictionary dictionary, string input)
         {
             this.input = input;
             bool correct = dictionary.IsCorrect(character, input);
-            this.correct = correct;
+            if (correct) {
+                ++this.correct;
+            }
+            else {
+                ++this.incorrect;
+            }
             record.Update(correct);
             return correct;
         }
 
-        public bool IsCorrect()
+        public bool EverIncorrect
         {
-            return correct ?? false;
+            get { return incorrect > 0; }
         }
 
         public string Answer

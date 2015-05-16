@@ -169,6 +169,7 @@
             this.wrongCardsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.wrongCardsDataGridView.Size = new System.Drawing.Size(356, 273);
             this.wrongCardsDataGridView.TabIndex = 29;
+            this.wrongCardsDataGridView.TabStop = false;
             // 
             // okButton
             // 
@@ -186,7 +187,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.okButton;
-            this.ClientSize = new System.Drawing.Size(646, 327);
+            this.ClientSize = new System.Drawing.Size(664, 327);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.wrongCardsDataGridView);
             this.Controls.Add(this.rateNumberLabel);
@@ -200,7 +201,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TestResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Test Result";
+            this.Text = "Result";
             ((System.ComponentModel.ISupportInitialize)(this.wrongCardsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

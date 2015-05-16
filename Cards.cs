@@ -58,6 +58,10 @@ namespace Flashcard
             return studyPlan.Count;
         }
 
+        internal bool AllPassed {
+            get { return GetStudyPlanCardCount() == GetCorrectCardCountInPlan(); }
+        }
+
         internal int GetLearnedCardCount()
         {
             return currentCard;
@@ -68,8 +72,7 @@ namespace Flashcard
             List<Card> mistakes = new List<Card>();
             foreach (Card card in studyPlan)
             {
-                if (!card.IsCorrect())
-                {
+                if (card.EverIncorrect) {
                     mistakes.Add(card);
                 }
             }
@@ -82,7 +85,7 @@ namespace Flashcard
             int count = 0;
 
             foreach (Card card in studyPlan) {
-                if (card.IsCorrect()) {
+                if (!card.EverIncorrect) {
                     ++count;
                 }
             }
@@ -140,12 +143,20 @@ namespace Flashcard
             currentCard = 0;
         }
 
+        internal void CreateStudyPlanOnMisspelledCards()
+        {
+            Reset();
+            studyPlan = this.GetMisspelledCards();
+            foreach (Card card in studyPlan) {
+                card.Reset();
+            }
+        }
+
         internal void CreateStudyPlan(Strategy strategy, int count, params string[] categories)
         {
             Reset();
 
-            switch (strategy)
-            {
+            switch (strategy) {
                 case Strategy.RANDOM:
                     studyPlan = CreateRandomStudyPlan(categories);
                     break;
@@ -159,8 +170,7 @@ namespace Flashcard
                     throw new ArgumentException("Unknown strategy: " + strategy);
             }
 
-            if (count > 0)
-            {
+            if (count > 0 && studyPlan.Count > count) {
                 studyPlan = studyPlan.GetRange(0, count);
             }
         }
@@ -169,8 +179,7 @@ namespace Flashcard
         {
             List<Card> plan = new List<Card>();
 
-            foreach (string category in categories)
-            {
+            foreach (string category in categories) {
                 string lesson = cards[category];
                 for (int i = 0; i < lesson.Length; ++i) {
                     char character = cards[category][i];
