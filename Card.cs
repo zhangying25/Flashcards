@@ -14,7 +14,7 @@ namespace Flashcard
         private int correct;
         // count of incorrect
         private int incorrect;
-        private string input;
+        private string incorrectPinyinInput;
 
         internal Card(char character, Record record)
         {
@@ -22,7 +22,7 @@ namespace Flashcard
             this.record = record;
             this.correct = 0;
             this.incorrect = 0;
-            this.input = null;
+            this.incorrectPinyinInput = null;
         }
 
         public char Character
@@ -43,13 +43,12 @@ namespace Flashcard
 
         internal bool CheckResult(ChineseDictionary dictionary, string input)
         {
-            this.input = input;
             bool correct = dictionary.IsCorrect(character, input);
             if (correct) {
                 ++this.correct;
-            }
-            else {
+            } else {
                 ++this.incorrect;
+                this.incorrectPinyinInput = input;
             }
             record.Update(correct);
             return correct;
@@ -60,9 +59,9 @@ namespace Flashcard
             get { return incorrect > 0; }
         }
 
-        public string Answer
+        public string IncorrectPinyinInput
         {
-            get { return input; }
+            get { return incorrectPinyinInput; }
         }
     }
 }

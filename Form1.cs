@@ -264,7 +264,7 @@ namespace Flashcard
             List<Result> results = new List<Result>();
 
             foreach (Card card in cards.GetMisspelledCards()) {
-                results.Add(new Result(card.Character, dictionary.GetPinyinHint(card.Character), card.Answer));
+                results.Add(new Result(card.Character, dictionary.GetPinyinHint(card.Character), card.IncorrectPinyinInput));
             }
 
             return results;
