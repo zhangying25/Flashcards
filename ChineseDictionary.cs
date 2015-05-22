@@ -61,8 +61,13 @@ namespace Flashcard
 
         internal string GetPinyinHint(char character)
         {
+            return GetPinyin(character).PinyinString;
+        }
+
+        internal Pinyin GetPinyin(char character)
+        {
             CheckAvailability(character);
-            return dictionary[character].PinyinString;
+            return dictionary[character];
         }
 
         internal void Pronounce(char character)

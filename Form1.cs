@@ -259,20 +259,16 @@ namespace Flashcard
             }  
         }
 
-        private List<Result> GetResults()
-        {
-            List<Result> results = new List<Result>();
-
-            foreach (Card card in cards.GetMisspelledCards()) {
-                results.Add(new Result(card.Character, dictionary.GetPinyinHint(card.Character), card.IncorrectPinyinInput));
-            }
-
-            return results;
-        }
-
         private void ShowStudyResult(string reason)
         {
-            List<Result> results = GetResults();
+            List<Result> results = new List<Result>();
+            int nonToneOnlyMistake = 0;
+            foreach (Card card in cards.GetMisspelledCards()) {
+                Result result = new Result(card.Character, dictionary.GetPinyin(card.Character), card.IncorrectPinyinInput);
+                nonToneOnlyMistake += result.ToneOnlyMistake ? 0 : 1;
+                results.Add(result);
+            }
+
             TestResultForm resultForm = new TestResultForm();
             resultForm.wrongCardsDataGridView.DataSource = results;
 
@@ -282,6 +278,7 @@ namespace Flashcard
             resultForm.correctCardsCountLabel.Text = correct.ToString();
             resultForm.incorrectCardsCountLabel.Text = (total - correct).ToString();
             resultForm.rateNumberLabel.Text = (correct * 100 / total).ToString() + " %";
+            resultForm.pinyinCorrectNumberLabel.Text = ((total - nonToneOnlyMistake) * 100 / total).ToString() + " %";
             resultForm.ShowDialog();
         }
 

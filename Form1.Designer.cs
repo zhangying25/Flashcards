@@ -34,6 +34,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.spaceStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pointsStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.pinyinLabel = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.strategyComboBox = new System.Windows.Forms.ComboBox();
@@ -56,8 +58,6 @@
             this.awardTrophyPictureBox = new System.Windows.Forms.PictureBox();
             this.tellMeButton = new System.Windows.Forms.Button();
             this.resultPictureBox = new System.Windows.Forms.PictureBox();
-            this.timerStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pointsStatusLable = new System.Windows.Forms.ToolStripStatusLabel();
             this.characterLabel = new System.Windows.Forms.Label();
             this.awardJediPictureBox = new System.Windows.Forms.PictureBox();
             this.awardYodaPictureBox = new System.Windows.Forms.PictureBox();
@@ -115,6 +115,22 @@
             this.spaceStatusLabel.Name = "spaceStatusLabel";
             this.spaceStatusLabel.Size = new System.Drawing.Size(619, 21);
             this.spaceStatusLabel.Spring = true;
+            // 
+            // timerStatusLabel
+            // 
+            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerStatusLabel.Image = global::Flashcard.Properties.Resources.sand_clock2;
+            this.timerStatusLabel.Name = "timerStatusLabel";
+            this.timerStatusLabel.Size = new System.Drawing.Size(77, 21);
+            this.timerStatusLabel.Text = "0:00:00";
+            // 
+            // pointsStatusLable
+            // 
+            this.pointsStatusLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pointsStatusLable.Image = global::Flashcard.Properties.Resources.Coins;
+            this.pointsStatusLable.Name = "pointsStatusLable";
+            this.pointsStatusLable.Size = new System.Drawing.Size(35, 21);
+            this.pointsStatusLable.Text = "0";
             // 
             // pinyinLabel
             // 
@@ -350,22 +366,6 @@
             this.resultPictureBox.TabIndex = 6;
             this.resultPictureBox.TabStop = false;
             this.resultPictureBox.Visible = false;
-            // 
-            // timerStatusLabel
-            // 
-            this.timerStatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerStatusLabel.Image = global::Flashcard.Properties.Resources.sand_clock2;
-            this.timerStatusLabel.Name = "timerStatusLabel";
-            this.timerStatusLabel.Size = new System.Drawing.Size(77, 21);
-            this.timerStatusLabel.Text = "0:00:00";
-            // 
-            // pointsStatusLable
-            // 
-            this.pointsStatusLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pointsStatusLable.Image = global::Flashcard.Properties.Resources.Coins;
-            this.pointsStatusLable.Name = "pointsStatusLable";
-            this.pointsStatusLable.Size = new System.Drawing.Size(35, 21);
-            this.pointsStatusLable.Text = "0";
             // 
             // characterLabel
             // 
